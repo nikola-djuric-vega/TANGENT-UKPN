@@ -1,0 +1,42 @@
+@import '../../../styles/includes';
+
+.content {
+  display: grid;
+  grid-template-areas:
+    'icon title'
+    'icon description';
+  border: solid 1px $gray-600;
+  border-left: 4px solid $red;
+  background-color: $bg-grey;
+  padding: $spacing-x3;
+  position: relative;
+  grid-column: 2/-2;
+
+  &[data-style='true'] {
+    background-color: #e6f0f8;
+  }
+}
+
+.warningIconWrapper {
+  grid-area: icon;
+  margin-right: $spacing-x3;
+
+  svg {
+    height: rem(45px);
+    width: rem(45px);
+    color: $red;
+  }
+}
+
+.alertErrorTitle {
+  @include font-size($textH7, 700);
+  grid-area: title;
+  color: $gray-900;
+}
+
+.alertErrorDescription {
+  @include font-size($text-body-2);
+  grid-area: description;
+  color: $gray-800;
+  margin-bottom: 0;
+}

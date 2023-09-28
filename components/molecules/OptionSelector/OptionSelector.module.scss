@@ -1,0 +1,17 @@
+@import '../../../styles/includes/';
+
+.connectionsBox {
+  min-width: 100%;
+  position: relative;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    min-width: rem(350px);
+    position: absolute;
+    right: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+}

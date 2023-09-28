@@ -1,0 +1,107 @@
+@import '../../../styles/includes/';
+
+.itemsContainer {
+  margin: 0 0 $spacing-x2;
+  list-style-type: none;
+  grid-column: 1/-1;
+  padding: 0;
+
+  @include media-breakpoint-up(md) {
+    justify-self: center;
+    grid-column: 2/-2;
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+  }
+}
+
+.title {
+  @include font-size($textH4, 700);
+  margin: $spacing-x4 0;
+  text-align: center;
+  grid-column: 1/-1;
+  color: $gray-900;
+
+  @include media-breakpoint-up(md) {
+    margin: $spacing-x4 0 $spacing-x5;
+  }
+}
+
+.listItem {
+  padding: $spacing-x2 $spacing-x4 $spacing-x2 rem(144px);
+  border-bottom: rem(1px) solid $gray-300;
+  border-right: rem(1px) solid $gray-300;
+  border-left: rem(1px) solid $gray-300;
+  position: relative;
+  text-align: left;
+  display: grid;
+
+  &:first-of-type {
+    border: rem(1px) solid $gray-300;
+  }
+
+  &:nth-child(3n + 1) {
+    border-left: rem(1px) solid $gray-300;
+  }
+
+  &:nth-child(n + 4) {
+    border-top: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x1 $spacing-x4 $spacing-x4;
+    border-top: rem(1px) solid $gray-300;
+    flex-direction: column;
+    text-align: center;
+    border-left: none;
+    display: flex;
+    width: 33.33%;
+  }
+}
+
+.icon {
+  margin: $spacing-x5;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  svg {
+    height: rem(64px);
+    width: rem(64px);
+    color: $orange;
+
+    @include media-breakpoint-up(md) {
+      height: rem(80px);
+      width: rem(80px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin: $spacing-x6 auto $spacing-x4;
+    position: relative;
+  }
+}
+
+.content {
+  flex-direction: column;
+  justify-content: center;
+  min-height: rem(128px);
+  max-width: 100%;
+  display: flex;
+}
+
+.contentTitle {
+  @include font-size($text-body-1);
+  margin-bottom: $spacing-x1;
+  color: $gray-900;
+}
+
+.contentSubtitle {
+  @include font-size($text-body-3);
+  margin-bottom: $spacing-x2;
+  color: $gray-900;
+}
+
+.link {
+  font-weight: 700;
+}

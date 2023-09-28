@@ -1,0 +1,132 @@
+@import '../../../styles/includes';
+
+.panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $gray-50;
+  z-index: 1;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s ease-in-out;
+  transform: translateX(-100%);
+
+  &[data-active='true'] {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+
+  [data-popup-open='true'] & {
+    overflow: hidden;
+  }
+}
+
+.closeButton {
+  width: 100%;
+  color: $gray-900;
+  justify-content: center;
+  padding: $spacing-x3;
+  border-radius: 0;
+  @include font-size($text-body-3);
+
+  svg {
+    margin-right: $spacing-x1;
+  }
+
+  &[data-top] {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &[data-bottom] {
+    border-top: 1px solid $gray-300;
+  }
+}
+
+.iconWrapper {
+  width: rem(50px);
+  height: rem(50px);
+  margin: 0 auto $spacing-x2;
+}
+
+.thanksWrapper {
+  padding: $spacing-x3 $spacing-x6;
+}
+
+.thanksTitle {
+  @include font-size($text-body-1, 700);
+  text-align: center;
+  color: $gray-900;
+}
+
+.thanksSubTitle {
+  text-align: center;
+  color: $gray-700;
+}
+
+.thanksIntro {
+  text-align: center;
+  color: $mid-blue;
+
+  p > strong {
+    margin-bottom: $spacing-x2;
+    font-weight: 700;
+    display: block;
+  }
+}
+
+.componentsWrapper {
+  background-color: $white;
+  border-top: 1px solid $gray-300;
+  padding: $spacing-x3 $spacing-x1;
+}
+
+.getUpdatesBtn {
+  margin: $spacing-x3 auto;
+  min-width: rem(288px);
+  text-align: left;
+
+  > div {
+    @include font-size($text-body-1);
+    margin-left: $spacing-x3;
+    margin-right: $spacing-x8;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  [data-is-loading='true'] {
+    pointer-events: none;
+  }
+}
+
+.futureUpdatesGdpr {
+  @include font-size($text-body-4);
+  margin: $spacing-x3 0;
+  text-align: left;
+  color: $gray-700;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.futureIncidentsSocial {
+  text-align: left;
+
+  p {
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.loaderWrapper {
+  width: 30px;
+  height: 30px;
+  margin: rem(8px) auto;
+}

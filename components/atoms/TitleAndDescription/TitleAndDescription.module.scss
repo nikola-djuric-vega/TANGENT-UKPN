@@ -1,0 +1,13 @@
+@import '../../../styles/includes/';
+
+.heading {
+  @include font-size($textH5);
+  margin-bottom: $spacing-x1;
+  color: $gray-900;
+  font-weight: 400;
+}
+
+.description {
+  @include font-size($text-body-2);
+  color: $gray-900;
+}

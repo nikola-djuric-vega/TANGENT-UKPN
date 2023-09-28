@@ -1,0 +1,90 @@
+@import '../../../styles/includes/';
+
+.article {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-x3;
+  padding-bottom: $spacing-x3;
+  border-bottom: rem(1px) solid $gray-500;
+
+  @include media-breakpoint-up(md) {
+    &[data-is-loaded-article='true'] {
+      flex-direction: row;
+      gap: $spacing-x6;
+      justify-content: space-between;
+    }
+  }
+}
+
+.articleContent {
+  margin-bottom: $spacing-x2;
+  p {
+    margin: 0;
+  }
+}
+
+.articleImageWrapper {
+  @include border-radius($border-radius-mobile);
+  margin-bottom: $spacing-x3;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+  }
+}
+
+.articleLink {
+  padding: 0;
+  margin-top: $spacing-x1;
+  -webkit-tap-highlight-color: transparent;
+
+  span {
+    margin: 0;
+    font-weight: 700;
+    font-size: rem(21px);
+  }
+}
+
+.articleHeading {
+  @include font-size($text-body-2);
+  margin-bottom: $spacing-x1;
+}
+
+.articleDate {
+  @include font-size($text-body-3);
+  white-space: nowrap;
+  display: flex;
+
+  & > svg {
+    margin-right: $spacing-x1;
+  }
+}
+
+.subhead {
+  @include font-size($text-body-3);
+}
+
+.videoWrapperButton {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+    svg {
+      color: $red;
+    }
+  }
+}
+
+.youtubeIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $black;
+}

@@ -1,0 +1,27 @@
+@import '../../../styles/includes/';
+
+.popUp {
+  background-color: transparentize($gray-900, 0.2);
+  flex-direction: column;
+  z-index: 99999;
+  align-items: center;
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  @include media-breakpoint-up(md) {
+    &[data-is-small='true'] {
+      background-color: transparent;
+      transform: translateX(-50%);
+      height: min-content;
+      width: min-content;
+      position: absolute;
+      // 17px === triangle height above popup
+      top: calc(100% + 17px);
+      left: 50%;
+    }
+  }
+}

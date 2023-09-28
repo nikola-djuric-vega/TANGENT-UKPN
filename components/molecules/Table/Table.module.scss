@@ -1,0 +1,184 @@
+@import '../../../styles/includes/';
+
+.table {
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-x5;
+
+    &[data-remove-bottom-margin='true'] {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mobileTable {
+  grid-column: 1/-1;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.mobileColumn {
+  margin-bottom: $spacing-x2;
+  overflow: hidden;
+  width: 100%;
+
+  &[data-column-highlight='true'] {
+    border: rem(2px) solid $orange;
+  }
+}
+
+.tableHeader {
+  background-color: $bg-purple;
+  padding: $spacing-x2;
+  color: $gray-900;
+
+  p {
+    @include font-size($text-body-2, 700);
+    margin: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    &[data-is-first='true'][data-column-highlight='true'] {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: solid $orange;
+        border-width: rem(2px) rem(2px) 0 rem(2px);
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.mobileTableRow {
+  position: relative;
+  padding: $spacing-x2;
+
+  &[data-is-highlighted='true'] {
+    border: rem(2px) solid $orange;
+  }
+
+  &[data-row-highlight='true'] {
+    border: rem(2px) solid $orange;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &:nth-child(2n) {
+    background-color: $gray-50;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: rem(1px);
+    background-color: $gray-300;
+  }
+
+  &:last-of-type {
+    &:after {
+      display: none;
+    }
+  }
+
+  p {
+    @include font-size($text-body-4);
+    color: $gray-900;
+    margin: 0;
+  }
+}
+
+.desktopTable {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+
+    &[data-col-number='2'] {
+      .tableCell {
+        width: 50%;
+      }
+    }
+    &[data-col-number='3'] {
+      .tableCell {
+        width: 33.33%;
+      }
+    }
+    &[data-col-number='4'] {
+      .tableCell {
+        width: 25%;
+      }
+    }
+    &[data-col-number='5'] {
+      .tableCell {
+        width: 20%;
+      }
+    }
+  }
+}
+
+.desktopTableHeader {
+  display: flex;
+  gap: $spacing-x2;
+}
+
+.desktopTableBody {
+  background-color: $gray-50;
+  border-bottom: rem(1px) solid $gray-300;
+  display: flex;
+  gap: $spacing-x2;
+
+  &:nth-child(2n) {
+    background-color: $white;
+  }
+
+  &[data-row-highlight='true'] {
+    box-shadow: inset 0px 0px 0px 2px $orange;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.tableCell {
+  padding: $spacing-x2;
+  text-align: center;
+
+  p {
+    @include font-size($text-body-4);
+    color: $gray-900;
+    margin: 0;
+  }
+
+  &[data-is-last='true'][data-column-highlight='true'] {
+    border: solid $orange;
+    border-width: 0 rem(2px) rem(2px) rem(2px);
+  }
+
+  &[data-column-highlight='true'] {
+    border: solid $orange;
+    border-width: 0 rem(2px) 0 rem(2px);
+  }
+}

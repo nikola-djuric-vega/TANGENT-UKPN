@@ -1,0 +1,21 @@
+@import '../../../styles/includes/';
+
+.addressField {
+  width: 100%;
+
+  label {
+    margin-bottom: $spacing-x1;
+    margin-top: $spacing-x4;
+    display: block;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  input {
+    &:last-of-type {
+      width: 50%;
+    }
+  }
+}

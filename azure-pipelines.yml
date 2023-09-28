@@ -1,0 +1,237 @@
+# Node.js React Web App to Linux on Azure
+# Build a Node.js React app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - develop
+  - release/*
+  - main
+
+variables:
+  azureStorageConnectionString: '$(DEV_AZURE_STORAGE_CONNECTION_STRING)'
+  azureSubscription: 'f7955090-aebc-4ce2-8ea2-e64eee3c967d' # ukpn-stest-svc-conn
+  poolName: 'ukpn-stest-ap'
+  appServiceName: 'assuldtap01'
+  cmsProjectAlias: '$(DEV_CMS_PROJECT_ALIAS)'
+  cmsApiKey: '$(DEV_CMS_API_KEY)'
+  cmsPowerCutPageId: '$(DEV_CMS_POWER_CUT_PAGE_ID)'
+  azureStorageConnectionStringRedwing: '$(DEV_AZURE_STORAGE_CONNECTION_STRING)'
+  azureStorageConnectionStringRedwing2: '$(DEV_AZURE_STORAGE_CONNECTION_STRING_REDWING2)'
+  umbracoManagementApiUrl: '$(UMBRACO_MANAGEMENT_API_URL)'
+  aiConnectionString: '$(DEV_AI_CONNECTION_STRING)'
+  ukpnError404Page: '$(DEV_UKPN_ERROR_PAGE_404_ID)'
+  ukpnError500Page: '$(DEV_UKPN_ERROR_PAGE_500_ID)'
+  ukpnGtmId: '$(DEV_UKPN_GTM_ID)'
+  reachdeckIntegrity: '$(DEV_REACHDECK_INTEGRITY)'
+  safeSpaceUrl: '$(SAFE_SPACE_URL)'
+  parcelForceEndpoint: '$(PARCEL_FORCE_ENDPOINT)'
+  googleRecaptchaKey: '$(DEV_GOOGLE_RECAPTCHA_KEY)'
+  civicCookieApiKey: '$(CIVIC_COOKIE_KEY)'
+  addThisKey: '$(DEV_NEXT_PUBLIC_ADD_THIS_ID)'
+  googleMapsApiKey: '$(DEV_NEXT_PUBLIC_MAPS_API_KEY)'
+  articlesEndpoint: '$(DEV_ARTICLES_ENDPOINT)'
+  articlesKey: '$(DEV_ARTICLES_KEY)'
+  webChatToolNumber: '$(DEV_WEB_CHAT_TOOL_NUMBER)'
+  queueItConfig: '$(DEV_NEXT_PUBLIC_QUEUE_IT_CONFIG)'
+  uploadFileEndpoint: '$(DEV_NEXT_PUBLIC_UPLOAD_FILE_ENDPOINT)'
+
+
+stages:
+  - stage: MainSite
+    displayName: Main Site
+    jobs:
+      - job: Build
+        displayName: Build
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        pool: $(poolName)
+        steps:
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish build artifact'
+            inputs:
+              PathtoPublish: '$(Build.Repository.LocalPath)'
+              ArtifactName: 'SourceCode'
+              publishLocation: 'Container'
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '14.x'
+          - task: Cache@2
+            displayName: 'Cache .next/cache'
+            inputs:
+              key: next | $(Agent.OS)
+              path: '$(System.DefaultWorkingDirectory)/.next/cache'
+            enabled: false
+          - task: CmdLine@2
+            displayName: 'Build Main Site'
+            env:
+              ARTICLES_ENDPOINT: $(articlesEndpoint)
+              ARTICLES_KEY: $(articlesKey)
+              CMS_API_KEY: $(cmsApiKey)
+              CMS_POWER_CUT_PAGE_ID: $(cmsPowerCutPageId)
+              CMS_PROJECT_ALIAS: $(cmsProjectAlias)
+              ERROR_PAGE_404_ID: $(ukpnError404Page)
+              ERROR_PAGE_500_ID: $(ukpnError500Page)
+              NEXT_PUBLIC_ADD_THIS_ID: $(addThisKey)
+              NEXT_PUBLIC_AI_CONNECTION_STRING: $(aiConnectionString)
+              NEXT_PUBLIC_CIVIC_COOKIE_API_KEY: $(civicCookieApiKey)
+              NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY: $(googleRecaptchaKey)
+              NEXT_PUBLIC_GTM_ID: $(ukpnGtmId)
+              NEXT_PUBLIC_MAPS_API_KEY: $(googleMapsApiKey)
+              NEXT_PUBLIC_PARCEL_FORCE_API: $(parcelForceEndpoint)
+              NEXT_PUBLIC_QUEUE_IT_CONFIG: $(queueItConfig)
+              NEXT_PUBLIC_REACHDECK_INTEGRITY: $(reachdeckIntegrity)
+              NEXT_PUBLIC_SAFE_SPACE_URL: $(safeSpaceUrl)
+              NEXT_PUBLIC_SITE_NAME: 'UKPN'
+              NEXT_PUBLIC_WEB_CHAT_TOOL_NUMBER: $(webChatToolNumber)
+              NEXT_PUBLIC_UPLOAD_FILE_ENDPOINT: $(uploadFileEndpoint)
+              UMBRACO_MANAGEMENT_API_URL: $(umbracoManagementApiUrl)
+            inputs:
+              script: |
+                npm install
+                npm run build --if-present
+          - task: CopyFiles@2
+            inputs:
+              Contents: |
+                .next/**/*
+                public/**/*
+                lib/loc.json
+                package-lock.json
+                package.json
+                server.js
+                csp-header.js
+                run-app.sh
+                next.config.js
+              TargetFolder: 'build'
+              OverWrite: true
+          - task: CmdLine@2
+            displayName: 'Install production modules'
+            inputs:
+              script: |
+                cd build
+                npm install --production
+          - task: ArchiveFiles@2
+            displayName: 'Create build folder ZIP'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+              replaceExistingArchive: true
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish build artifact'
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'MainSiteBuild'
+              publishLocation: 'Container'
+
+      - job: TSC
+        displayName: TSC
+        condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        pool: $(poolName)
+        steps:
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish build artifact'
+            inputs:
+              PathtoPublish: '$(Build.Repository.LocalPath)'
+              ArtifactName: 'SourceCode'
+              publishLocation: 'Container'
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+             versionSpec: '14.x'
+          - task: CmdLine@2
+            displayName: 'Run TSC'
+            inputs:
+              script: |
+                npm install
+                npm run tsc --if-present
+        
+      - job: Tests
+        displayName: Unit Tests
+        condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        pool: $(poolName)
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs: 
+              versionSpec: '14.x'
+          - task: CmdLine@2
+            displayName: 'Run Tests'
+            inputs: 
+              script: |
+                npm install
+                npm run test
+
+      - job: Audit
+        displayName: NPM Audit
+        #Disabling npm audit due to Storybook dependencies causing failures
+        condition: false
+        pool: $(poolName)
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '14.x'
+          - task: CmdLine@2
+            displayName: 'Run Audit'
+            inputs:
+              script: |
+                npm install
+                npm audit --only=prod
+
+      - deployment: Deploy
+        displayName: Deploy
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        environment: assuldtap01
+        dependsOn: Build
+        pool: $(poolName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadBuildArtifacts@0
+                  inputs:
+                    buildType: 'current'
+                    downloadType: 'single'
+                    artifactName: 'MainSiteBuild'
+                    itemPattern: '**'
+                    downloadPath: '$(System.ArtifactsDirectory)'
+                - task: AzureRmWebAppDeployment@4
+                  displayName: 'Azure App Service Deploy: ${{variables.appServiceName}}'
+                  inputs:
+                    azureSubscription: ${{variables.azureSubscription}}
+                    appType: webAppLinux
+                    WebAppName: ${{variables.appServiceName}}
+                    packageForLinux: '$(System.ArtifactsDirectory)/MainSiteBuild/$(Build.BuildId).zip'
+                    RuntimeStack: 'NODE|14-lts'
+                    StartupCommand: 'npm run start'
+
+  - stage: Storybook
+    displayName: Storybook
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    jobs:
+      - job: Storybook
+        displayName: Storybook Deploy
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        pool: $(poolName)
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '14.x'
+          - task: CmdLine@2
+            displayName: 'Build Storybook'
+            inputs:
+              script: |
+                npm install
+                npm run build-storybook
+          - task: AzureCLI@2
+            displayName: Azure CLI
+            env:
+              AZURE_STORAGE_CONNECTION_STRING: '$(azureStorageConnectionStringRedwing)'
+            inputs:
+              azureSubscription: ${{variables.azureSubscription}}
+              scriptType: 'bash'
+              scriptLocation: inlineScript
+              inlineScript: az storage blob upload-batch --source 'storybook-static' --destination '$web' --overwrite

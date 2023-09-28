@@ -1,0 +1,78 @@
+@import '../../../styles/includes';
+
+.PowerCutPanelAffectedPostocodes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $gray-50;
+  z-index: 1;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s ease-in-out;
+  transform: translateX(-100%);
+  padding-bottom: $spacing-x6;
+
+  &[data-active='true'] {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}
+
+.closeButton {
+  width: 100%;
+  color: $gray-900;
+  justify-content: center;
+  padding: $spacing-x3;
+  border-radius: 0;
+  @include font-size($text-body-3);
+
+  svg {
+    margin-right: $spacing-x1;
+  }
+
+  &[data-top] {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &[data-bottom] {
+    border-top: 1px solid $gray-300;
+  }
+}
+
+.postCodesContainer {
+  text-align: center;
+  padding: $spacing-x4 0;
+}
+
+.postCodesContainerTitle {
+  font-size: rem(32px);
+  color: $gray-900;
+}
+
+.postCodesContainerReference {
+  font-size: rem(16px);
+  color: $gray-900;
+  opacity: 0.7;
+}
+
+.postCodesList {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: rem(340px);
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $white;
+  border: 1px solid $gray-300;
+  border-radius: 5px;
+  padding: rem(22px);
+  margin: auto;
+}
+
+.postCodesListItem {
+  width: 120px;
+  height: 30px;
+  color: $gray-700;
+  font-weight: 400;
+}

@@ -1,0 +1,60 @@
+@import '../../../styles/includes';
+
+.container {
+  display: grid;
+}
+
+.mapLink {
+  @include font-size($text-body-2);
+  text-decoration: none;
+  display: inline;
+  color: $red;
+}
+
+.mapLink:hover {
+  cursor: pointer;
+}
+
+.smallInput {
+  width: 45%;
+  padding-top: $spacing-x1;
+  justify-content: space-evenly;
+  padding-bottom: $spacing-x1;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instructions {
+  @include font-size($text-body-2);
+  padding-top: $spacing-x2;
+  display: grid;
+}
+
+.label {
+  margin-bottom: $spacing-x1;
+  display: inline-block;
+}
+
+.help {
+  @include font-size($text-body-3);
+  color: $blue;
+  & > img {
+    height: 0.9em;
+    width: 0.9em;
+  }
+}
+
+.help:hover {
+  cursor: pointer;
+}
+
+.w3wInput {
+  padding-top: $spacing-x2;
+}
+
+.postCodeTooltip {
+  padding-top: $spacing-x2;
+}

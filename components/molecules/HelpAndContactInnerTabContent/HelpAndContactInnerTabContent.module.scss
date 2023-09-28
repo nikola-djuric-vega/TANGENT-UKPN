@@ -1,0 +1,100 @@
+@import '../../../styles/includes';
+
+.innerTabContent {
+  padding: $spacing-x4;
+  width: 100%;
+  background-color: $white;
+  transition: all 0.25s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(25%);
+  opacity: 0;
+  min-height: rem(960px);
+  visibility: hidden;
+
+  &[data-is-open='true'] {
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: all;
+    z-index: 15;
+    opacity: 1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    left: 0;
+    padding: $spacing-x4 $spacing-x7;
+
+    &[data-is-open='true'] {
+      pointer-events: all;
+      z-index: 15;
+      opacity: 1;
+      height: auto;
+      overflow: auto;
+      left: 0;
+      // reducing 1px to avoid overlay of the wrapper border
+      width: calc(100% - 1px);
+    }
+  }
+}
+
+.backButton {
+  font-size: $button-size-small;
+  position: relative;
+  margin: 0 0 $spacing-x4 rem(-4px);
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  color: $gray-900;
+  pointer-events: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &[data-is-button-active='true'] {
+    pointer-events: all;
+  }
+}
+
+.backIconWrapper {
+  margin-right: $spacing-x1;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: rem(10px);
+    height: rem(16px);
+    color: $orange;
+    transform: rotate(180deg);
+  }
+}
+
+.tabHeading {
+  color: $gray-900;
+  margin-bottom: $spacing-x2;
+  font-weight: 400;
+}
+
+.subTitle {
+  @include font-size($text-body-3);
+  margin-bottom: $spacing-x2;
+  font-weight: 400;
+  color: $gray-900;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.componentLink {
+  margin-bottom: $spacing-x2;
+  pointer-events: none;
+  width: fit-content;
+
+  &[data-is-link-active='true'] {
+    pointer-events: all;
+  }
+}

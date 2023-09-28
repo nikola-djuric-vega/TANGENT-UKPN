@@ -1,0 +1,53 @@
+@import '../../../styles/includes';
+
+.powerCutPage {
+  height: min-content;
+
+  &[data-is-not-map="false"] {
+    height: 100vh;
+    height: var(--map-height);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: $power-cut-header-height-sm auto;
+  height: 100%;
+  transform: none;
+  transition: transform 0.25s ease;
+
+  [data-is-not-map="true"] & {
+    grid-template-rows: $power-cut-header-height-sm minmax(100vh, min-content);
+  }
+
+  &[data-is-menu-open='true'] {
+    transform: translateX(-300px);
+    overflow: hidden;
+    pointer-events: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: $power-cut-header-height-md;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: calc(100% - $power-cut-header-height-md);
+      background-color: transparentize($black, 0.75);
+      z-index: 3;
+    }
+  }
+
+  &[data-is-modal-open='true'] {
+    overflow: hidden;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-rows: $power-cut-header-height-md 1fr;
+    &[data-is-not-map="true"] {
+      grid-template-rows: $power-cut-header-height-md minmax(100vh, min-content);
+    }
+  }
+}

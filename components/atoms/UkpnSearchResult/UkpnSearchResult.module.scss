@@ -1,0 +1,24 @@
+@import '../../../styles/includes/';
+
+.searchResult {
+  padding: $spacing-x3 0 $spacing-x2;
+  border-bottom: 1px solid $gray-300;
+  border-top: 1px solid $gray-300;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+
+  a {
+    justify-content: flex-start;
+  }
+
+  p {
+    @include font-size($text-body-3);
+    color: $gray-800;
+    margin-top: -$spacing-x2;
+    margin-bottom: $spacing-x3;
+    width: 100%;
+  }
+}

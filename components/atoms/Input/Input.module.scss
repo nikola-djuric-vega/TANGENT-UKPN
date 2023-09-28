@@ -1,0 +1,27 @@
+@import '../../../styles/includes/';
+
+.textInput {
+  @include border-radius(5px);
+  @include font-size($text-body-2);
+  border: rem(1px) solid $gray-400;
+  display: block;
+  height: rem(54px);
+  padding: $spacing-x2;
+  width: 100%;
+  color: $gray-900;
+
+  &:focus {
+    border: rem(1px) solid $dark-blue;
+    outline: none;
+    color: $gray-900;
+    background: $gray-50;
+  }
+
+  &[data-error='true'] {
+    @include form-field-error;
+  }
+
+  &::placeholder {
+    color: $gray-600;
+  }
+}

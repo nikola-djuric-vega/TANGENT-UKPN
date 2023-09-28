@@ -1,0 +1,172 @@
+@import "../../../styles/includes/";
+
+.pulsingAnimation {
+  padding: rem(2px) $spacing-x2;
+  border-radius: rem(20px);
+  background-color: $white;
+  align-items: center;
+  white-space: normal;
+  position: relative;
+  display: flex;
+  color: $white;
+  height: auto;
+
+  &[data-label-only="true"] {
+    white-space: normal;
+
+    .text {
+      margin-left: 0;
+    }
+  }
+
+  &[data-is-static="true"] {
+    height: auto;
+    padding: 0;
+
+    .pulsinCircle{
+      &:after {
+        animation: none;
+        left: 50%;
+        top: 50%;
+      }
+    }
+  }
+
+  &[data-theme="Orange"] {
+    background-color: $orange;
+    color: $white;
+  }
+
+  &[data-theme="White"] {
+    background-color: $white;
+    color: $gray-900;
+  }
+  
+  &[data-theme="Purple"],  &[data-theme="Green"], &[data-theme="Blue"], &[data-theme="Red"] {
+
+    &[data-is-static="true"] { 
+      background-color: transparent;
+    }
+
+    .pulsinCircle {
+      &:after {
+        height: 44%;
+        width: 44%;
+      }
+    }
+  }
+
+  &[data-theme="Purple"] {
+    background-color: transparentize($purple, 0.8);
+    color: $gray-900;
+
+    .pulsinCircle {
+      background-color: transparentize($purple, 0.8);
+
+      &:after {
+        background-color: $purple;
+      }
+    }
+  }
+
+  &[data-theme="Green"] {
+    background-color: transparentize($green, 0.8);
+    color: $gray-900;
+
+    .pulsinCircle {
+      background-color: transparentize($green, 0.8);
+
+      &:after {
+        background-color: $green;
+      }
+    }
+  }
+
+  &[data-theme="Blue"] {
+    background-color: transparentize($light-blue, 0.8);
+    color: $gray-900;
+
+    .pulsinCircle {
+      background-color: transparentize($light-blue, 0.8);
+
+      &:after {
+        background-color: $light-blue;
+      }
+    }
+  }
+
+  &[data-theme="Red"] {
+    background-color: transparentize($faded-orange, 0.8);
+    color: $gray-900;
+
+    &[data-is-static="true"] { 
+      background-color: transparent;
+    }
+
+    .pulsinCircle {
+      background-color: transparentize($faded-orange, 0.8);
+
+      &:after {
+        background-color: $faded-orange;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    height: rem(40px);
+  }
+}
+
+.pulsinCircle {
+  background-color: $light-red;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: relative;
+  height: rem(20px);
+  width: rem(20px);
+  flex-shrink: 0;
+
+  &:after {
+    animation: pulsing 2s cubic-bezier(0.455, 0.09, 0.515, 0.955) -0.4s infinite;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    background-color: $orange;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    height: 50%;
+    content: "";
+    width: 50%;
+    left: 25%;
+    top: 25%;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: rem(24px);
+    height: rem(24px)
+  }
+}
+
+@keyframes pulsing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+}
+
+.text {
+  @include font-size($text-body-1);
+  margin: 0 0 0 $spacing-x1;
+
+  @include media-breakpoint-up(md) {
+    margin-left: $spacing-x1;
+  }
+}

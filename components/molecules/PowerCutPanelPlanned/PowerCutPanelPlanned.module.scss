@@ -1,0 +1,62 @@
+@import '../../../styles/includes/';
+
+.wrapper {
+  background-color: $gray-50;
+  border-bottom: 1px solid $gray-300;
+  padding-top: $spacing-x5;
+}
+
+.intro {
+  @include font-size($text-body-1);
+  text-align: center;
+  color: $gray-900;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.infoWrapper {
+  padding: $spacing-x2;
+  border-bottom: 1px solid $gray-300;
+}
+
+.infoSections {
+  display: flex;
+}
+
+.infoSection {
+  text-align: center;
+  padding: $spacing-x2;
+  flex: 1 1 auto;
+  width: 50%;
+}
+
+.infoSectionHeading {
+  @include font-size($text-body-2);
+  color: $gray-900;
+
+  p {
+    margin: 0;
+  }
+}
+
+.infoSectionValue {
+  @include font-size($textH4);
+  color: $purple;
+}
+
+.reasonSection {
+  text-align: center;
+  margin-top: $spacing-x2;
+  padding: 0 $spacing-x6 $spacing-x3;
+}
+
+.reasonHeading {
+  color: $gray-900;
+  @include font-size($text-body-2);
+}
+
+.reasonDescription {
+  color: $gray-700;
+}

@@ -1,0 +1,11 @@
+@import '../../styles/includes';
+
+.powerCut {
+  height: calc(100vh - $power-cut-header-height-sm);
+  flex-direction: column;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    height: calc(100vh - $power-cut-header-height-md);
+  }
+}

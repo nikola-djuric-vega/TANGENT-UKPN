@@ -1,0 +1,47 @@
+@import '../../styles/includes/';
+
+.stormPrepareMain {
+  grid-template-rows: repeat(auto, 2);
+  margin-top: $spacing-x5;
+
+  @include media-breakpoint-up(md) {
+    grid-template-rows: auto;
+  }
+}
+
+.stormPrepareContent {
+  flex-direction: column;
+  grid-column: 1 / -1;
+  gap: $spacing-x2;
+  grid-row: 1 / 2;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 1 / 8;
+    gap: $spacing-x6;
+    grid-row: 1 / -1;
+  }
+}
+
+.stormPrepareBody {
+  @include font-size($text-body-2);
+
+  p {
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+.stormChecklistWrapper {
+  grid-column: 1 / -1;
+  margin-top: $spacing-x5;
+
+  @include media-breakpoint-up(md) {
+    justify-content: center;
+    height: fit-content;
+    grid-column: 8 / -1;
+    display: flex;
+    margin: 0;
+  }
+}

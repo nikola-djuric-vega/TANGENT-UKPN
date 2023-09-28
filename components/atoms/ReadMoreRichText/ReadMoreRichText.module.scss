@@ -1,0 +1,61 @@
+@import '../../../styles/includes/';
+
+.ReadMoreRichText {
+  transition: all .25s ease-in-out;
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+  margin: 0;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &[data-is-open="false"] {
+    .elipses {
+      &::after {
+        display: inline-block;
+        line-height: inherit;
+        position: relative;
+        font-size: inherit;
+        content: "...";
+      }
+    }
+  }
+}
+
+.controls {
+  margin-top: $spacing-x4;
+  align-items: center;
+  gap: $spacing-x2;
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+}
+
+
+.toggleButton {
+  align-self: flex-start;
+  margin-right: auto;
+  min-width: unset;
+
+  span {
+    margin: $spacing-x1 $spacing-x2 !important;
+    font-weight: 400 !important;
+  }
+}
+
+.pinLabel {
+  @include font-size($text-body-2);
+  padding: $spacing-x1 $spacing-x2;
+  background-color: $white;
+  border-radius: 100px;
+  margin-bottom: 0;
+
+  svg {
+    margin-right: rem(12px);
+    height: rem(16px);
+    width: rem(16px);
+    color: $orange;
+  }
+}

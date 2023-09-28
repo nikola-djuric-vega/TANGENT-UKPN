@@ -1,0 +1,32 @@
+@import '../../../styles/includes';
+
+.listTitle {
+  color: $gray-900;
+  margin-bottom: $spacing-x1;
+  font-weight: 400;
+}
+
+.listItems {
+  list-style: none;
+  padding: $spacing-x3 0;
+  border-bottom: rem(2px) solid $gray-200;
+}
+
+.listItem {
+  @include font-size($text-body-2);
+  color: $gray-700;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: $spacing-x2 0;
+  padding: $spacing-x1 $spacing-x6 $spacing-x1 0;
+
+  &:after {
+    @include css-svg-icon('icon_tick_checklist');
+    position: absolute;
+    width: rem(23px);
+    height: rem(16px);
+    right: rem(19px);
+    top: rem(14px);
+  }
+}

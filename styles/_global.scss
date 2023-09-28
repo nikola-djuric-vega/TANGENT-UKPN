@@ -1,0 +1,176 @@
+.bg-white {
+  background-color: $white;
+}
+
+.bg-indigo {
+  background-color: $mid-blue;
+}
+
+.opa-50 {
+  opacity: 0.5;
+}
+
+.opa-70 {
+  opacity: 0.7;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.pos-relative {
+  position: relative;
+  overflow: hidden;
+}
+
+.box-sizing {
+  box-sizing: border-box;
+}
+
+.border-top {
+  border-top: 1px solid $gray-300;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $gray-300;
+}
+
+.border-left {
+  border-left: 1px solid $gray-300;
+}
+
+.border-right {
+  border-left: 1px solid $gray-300;
+}
+
+.border-darker {
+  border: 1px solid $gray-300;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.react-select {
+  font-family: $font;
+}
+
+.button-reset {
+  user-select: none;
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  color: inherit;
+  appearance: none !important;
+}
+
+#__ba_panel {
+  position: fixed;
+  bottom: $spacing-x3;
+  left: $spacing-x3;
+}
+
+.menu-open {
+  overflow: hidden !important;
+}
+
+#__next {
+  height: 100%;
+}
+
+.trustpilot-widget {
+  margin: $spacing-x3 0;
+}
+
+.small-rich-text {
+  @include font-size($text-body-4);
+}
+
+.large-rich-text {
+  @include font-size($text-body-2);
+}
+
+.dno-title {
+  @include font-size($textH5);
+  color: $red;
+  margin-bottom: $spacing-x1;
+}
+
+.dno-sub-title {
+  @include font-size($text-body-1);
+  margin-bottom: $spacing-x2;
+}
+
+.dno-provider {
+  @include font-size($text-body-2);
+  color: $gray-700;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.componentLayout {
+  margin: 0 auto $spacing-x5 auto;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: flex;
+
+  &[data-remove-bottom-margin='true'] {
+    margin-bottom: 0;
+  }
+}
+
+.componentInner {
+  @include site-grid;
+  margin: 0 auto;
+  width: 100%;
+
+  &[data-is-hero='true'] {
+    @include site-grid(false);
+  }
+
+  &[data-is-landing-hero='true'] {
+    margin-bottom: rem(114px);
+  }
+
+  &[data-remove-grid-padding='true'] {
+    padding: 0;
+  }
+}
+
+.intro__icon-box {
+  padding: $spacing-x2 $spacing-x2 $spacing-x2 $spacing-x10;
+  background-color: transparentize($red, 0.95);
+  margin: $spacing-x1 0 $spacing-x4 0;
+  @include font-size($text-body-2);
+  border: rem(1px) solid $gray-300;
+  border-left: rem(3px) solid $red;
+  min-height: $spacing-x10;
+  position: relative;
+
+  &:after {
+    @include css-svg-icon('icon_warning', $red);
+    position: absolute;
+    height: rem(48px);
+    left: $spacing-x2;
+    top: $spacing-x2;
+    width: rem(48px);
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}

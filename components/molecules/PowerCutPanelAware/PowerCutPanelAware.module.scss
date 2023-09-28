@@ -1,0 +1,64 @@
+@import '../../../styles/includes/';
+
+.etrWrapper {
+  color: $gray-900;
+  text-align: center;
+  padding: $spacing-x5 $spacing-x2;
+  border-bottom: 1px solid $gray-300;
+  line-height: 1.5;
+}
+
+.flushText {
+  margin: 0;
+}
+
+.estimateText {
+  color: $orange;
+  @include font-size($textH3);
+  line-height: 1.1;
+}
+
+.stormWrapper {
+  border-top: 1px solid $gray-300;
+  padding: $spacing-x3;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x5;
+  }
+}
+
+.reasonWrapper {
+  border-top: 1px solid $gray-300;
+  padding: $spacing-x3;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x5;
+  }
+}
+
+.reasonInnerWrapper {
+  padding: 0 $spacing-x4;
+}
+
+.reasonTitle {
+  @include font-size($textH5);
+  line-height: 1.1;
+  color: $gray-900;
+}
+
+.reasonText {
+  color: $gray-900;
+  line-height: 1.67;
+
+  p {
+    margin: 0;
+  }
+}
+
+.reasonInfo {
+  color: $gray-700;
+  line-height: 1.67;
+  margin: 0;
+}

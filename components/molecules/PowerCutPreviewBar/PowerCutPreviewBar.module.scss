@@ -1,0 +1,83 @@
+@import '../../../styles/includes';
+
+.preview {
+  visibility: hidden;
+  opacity: 0;
+  background-color: $white;
+  height: $power-cut-panel-map-overlay;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s;
+
+  background-color: transparent;
+  color: $gray-900;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &[data-is-preview-open='true'] {
+    visibility: visible;
+    opacity: 1;
+    height: $power-cut-preview-bar-height;
+    background-color: $gray-200;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.arrowButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px;
+  min-height: 34px;
+  background-color: $dark-blue;
+  position: absolute !important;
+  top: 0;
+  left: 50%;
+  color: $white;
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  border-radius: 50% !important;
+  z-index: 5;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s;
+  opacity: 1;
+
+  &[data-is-preview-open='false'] {
+    transition: none;
+    opacity: 0;
+  }
+}
+
+.title {
+  @include font-size($textH5);
+}
+
+.description {
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.time {
+  @include font-size($text-body-1);
+
+  &[data-type='Planned'],
+  &[data-type='Unplanned'] {
+    color: $orange;
+  }
+
+  &[data-type='Restored'] {
+    color: $dark-teal;
+  }
+}
+
+.colorGreen {
+  color: $dark-teal;
+}

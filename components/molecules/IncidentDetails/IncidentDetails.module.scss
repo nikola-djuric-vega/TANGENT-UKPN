@@ -1,0 +1,200 @@
+@import "../../../styles/includes";
+
+.incidentDetails {
+  @include border-radius($border-radius-mobile);
+  border: 1px solid $gray-500;
+  justify-content: center;
+  margin-top: $spacing-x5;
+  flex-direction: column;
+  padding: 0 $spacing-x2;
+  align-items: stretch;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x3;
+    flex-direction: row;
+  }
+
+  & > *:last-child {
+    border-bottom: none;
+
+    @include media-breakpoint-up(md) {
+      border-right: 0;
+    }
+  }
+}
+
+.incidentSingleStat {
+  border-bottom: 1px solid $gray-500;
+  justify-content: flex-start;
+  padding: $spacing-x2 0;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    border-right: 1px solid $gray-500;
+    padding: 0 $spacing-x3;
+    flex-direction: column;
+    border-bottom: none;
+  }
+}
+
+.affectedPostcodesButton {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: column;
+  }
+
+  &:after {
+    @include css-svg-background('icon_chevron_right', $orange);
+    margin-left: auto;
+    height: rem(14px);
+    width: rem(14px);
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  .data {
+    &:after {
+      @include css-svg-background('icon_chevron_right', $orange);
+      margin-left: $spacing-x1;
+      height: rem(14px);
+      width: rem(14px);
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
+    }
+  }
+}
+
+.data {
+  @include font-size($textH8, 700);
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  margin-bottom: 0;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.dataIcon {
+  margin-right: $spacing-x1;
+  height: rem(24px);
+  width: rem(24px);
+}
+
+.dataLabel {
+  @include font-size($text-body-3);
+  margin-left: $spacing-x1;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x1;
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+.popUp {
+  @include border-radius($border-radius-desktop, true, true, false, false);
+  max-height: calc(100% - #{rem(196px)});
+  background-color: $white;
+  flex-direction: column;
+  justify-self: flex-end;
+  align-self: flex-end;
+  padding: $spacing-x3;
+  margin-top: auto;
+  display: flex;
+  height: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: rem(594px);
+    max-height: none;
+    border-radius: 0;
+    height: 100%;
+
+    &[data-is-small="true"] {
+      filter: drop-shadow(0px 2px 20px rgba(49, 53, 72, 0.1));
+      @include border-radius($border-radius-desktop);
+      width: rem(400px);
+      height: auto;
+      left: 50%;
+  
+      &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: white;
+        position: absolute;
+        height: rem(17px);
+        width: rem(17px);
+        display: block;
+        content: '';
+        left: 50%;
+        top: 0;
+      }
+    }
+  }
+}
+
+.closeButton {
+  height: auto !important;
+  align-self: flex-end;
+
+  svg {
+    height: rem(24px);
+    width: rem(24px);
+  }
+}
+
+.overlayIcon {
+  margin-bottom: $spacing-x2;
+  margin-top: $spacing-x5;
+  align-self: center;
+  height: rem(48px);
+  width: rem(48px);
+}
+
+.popUpTitle {
+  margin-bottom: $spacing-x4;
+  text-align: center;
+}
+
+.affectedPostcodes {
+  flex-direction: row;
+  align-self: center;
+  gap: $spacing-x1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+  width: auto;
+}
+
+.postcode {
+  @include font-size($text-body-3);
+  background-color: $bg-blue;
+  border-radius: rem(4px);
+  min-width: rem(79px);
+  text-align: center;
+  padding: rem(4px);
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    min-width: rem(100px);
+  }
+}

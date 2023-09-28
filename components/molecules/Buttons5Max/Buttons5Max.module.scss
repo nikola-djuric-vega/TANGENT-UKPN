@@ -1,0 +1,13 @@
+@import '../../../styles/includes';
+
+.content {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-x2;
+}
+
+.cta {
+  width: fit-content;
+  max-width: 100%;
+}

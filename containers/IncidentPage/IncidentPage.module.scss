@@ -1,0 +1,20 @@
+@import '../../styles/includes';
+
+.loaderWrapper {
+  background-color: $white;
+  justify-content: center;
+  flex-direction: column;
+  z-index: $zindex-over;
+  align-items: center;
+  position: absolute;
+  min-height: 100%;
+  display: flex;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  div {
+    height: rem(100px);
+    width: rem(100px);
+  }
+}

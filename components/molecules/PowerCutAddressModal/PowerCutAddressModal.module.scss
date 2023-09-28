@@ -1,0 +1,103 @@
+@import '../../../styles/includes';
+
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-blue;
+  -webkit-font-smoothing: antialiased;
+  overflow: scroll;
+
+  @include media-breakpoint-up(md) {
+    padding-top: rem(156px);
+  }
+}
+
+.modalCloseButton {
+  border-bottom: rem(1px) solid $gray-300;
+  font-size: $button-size-regular;
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-x3;
+  padding: $spacing-x1 0;
+  color: $white;
+  width: 100%;
+
+  svg {
+    width: rem(12px);
+    height: rem(12px);
+  }
+
+  @include media-breakpoint-up(md) {
+    justify-content: flex-end;
+    border-bottom: none;
+    right: $spacing-x6;
+    margin-bottom: 0;
+    width: auto;
+  }
+}
+
+.closeButtonText {
+  margin-left: $spacing-x1;
+}
+
+.modalInner {
+  padding: $spacing-x3 $spacing-x5 0;
+  margin: 0 auto;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 0;
+  }
+}
+
+.modalHeading {
+  @include font-size($textH3);
+  color: $white;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 0 $spacing-x1;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    @include font-size($textH1);
+  }
+}
+
+.powerCutModalTitle {
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.modalText {
+  @include font-size($textH5);
+  padding: $spacing-x1 0;
+  text-align: center;
+  margin: 0 auto;
+  color: $white;
+
+  @include media-breakpoint-up(md) {
+    @include font-size($text-body-1);
+    max-width: 58.333%;
+  }
+}
+
+.addressLookupWrapper {
+  margin: $spacing-x6 auto 0;
+  height: rem(66px);
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    height: rem(88px);
+    width: 100%;
+    max-width: 67%;
+  }
+}

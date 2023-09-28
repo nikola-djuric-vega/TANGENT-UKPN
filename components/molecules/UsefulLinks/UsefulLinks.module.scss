@@ -1,0 +1,120 @@
+@import '../../../styles/includes/';
+
+.usefulLinks {
+  background-color: $bg-blue;
+
+  &[data-is-white-background='true'] {
+    background-color: $white;
+  }
+}
+
+.content {
+  background-color: $bg-blue;
+  padding: $spacing-x5 0;
+  grid-column: 1 / -1;
+
+  &[data-is-white-background='true'] {
+    background-color: $white;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x5 0;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-x1;
+  margin-left: $spacing-x1;
+  grid-column: 1/-1;
+  color: $gray-900;
+
+  @include media-breakpoint-up(md) {
+    margin-left: $spacing-x3;
+  }
+}
+
+.linksContainer {
+  grid-column: 1/-1;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $spacing-x4;
+    padding: 0;
+    margin-bottom: $spacing-x2;
+  }
+}
+
+.item {
+  border-bottom: rem(1px) solid $gray-300;
+  -webkit-tap-highlight-color: transparent;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x3 0;
+
+    &:hover {
+      cursor: pointer;
+
+      a {
+        background-color: $bg-purple;
+        width: 100%;
+      }
+
+      svg {
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}
+
+.linkItem {
+  @include border-radius($border-radius-desktop);
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.2s ease-in-out;
+  padding: $spacing-x4 $spacing-x1;
+  justify-content: space-between;
+  text-decoration: none;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 0;
+  color: $gray-900;
+  display: flex;
+  height: 100%;
+
+  &[data-change-color='true'] {
+    color: $gray-600;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x4 $spacing-x3;
+
+    &:hover {
+      color: $gray-900;
+    }
+  }
+}
+
+.linkTitle {
+  @include font-size($textH7);
+  margin: 0;
+}
+
+.iconWrapper {
+  margin-left: $spacing-x2;
+
+  svg {
+    width: rem(32px);
+    height: rem(32px);
+    color: $orange;
+  }
+
+  @include media-breakpoint-up(md) {
+    svg {
+      width: rem(40px);
+      height: rem(40px);
+    }
+  }
+}

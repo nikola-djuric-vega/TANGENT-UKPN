@@ -1,0 +1,19 @@
+@import '../../../styles/includes/';
+
+.addressCard {
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.address {
+  background-color: $gray-100;
+  margin-bottom: $spacing-x2;
+  padding: $spacing-x2;
+  width: 100%;
+}
+
+.addressCardLabel {
+  margin-bottom: $spacing-x2;
+}

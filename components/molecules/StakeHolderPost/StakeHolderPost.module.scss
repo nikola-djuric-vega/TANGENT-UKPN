@@ -1,0 +1,234 @@
+@import "../../../styles/includes/";
+
+.StormFeedCard {
+  padding-top: $spacing-x4;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  &::before {
+    background-color: $orange;
+    position: absolute;
+    left: $spacing-x3;
+    display: none;
+    height: 100%;
+    content: "";
+    width: 1px;
+    bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-left: $spacing-x6;
+
+    &::before {
+      display: block;
+    }
+  }
+
+  &[data-is-pinned="true"] {
+    padding-top: 0;
+
+    .timelinePin {
+      top: calc(rem(12px) + $spacing-x3);
+    }
+
+    .cardWrapper {
+      @include border-radius($border-radius-desktop);
+      background-color: $bg-purple;
+      padding: $spacing-x3;
+    }
+  }
+
+  &[data-is-pinned="false"]:first-of-type {
+    padding-top: 0;
+
+    .timelinePin {
+      top: rem(12px);
+    }
+  }
+
+  &:first-of-type::before {
+    height: calc(100% + $spacing-x3);
+
+    @include media-breakpoint-up(md) {
+      height: calc(100% + $spacing-x5);
+    }
+  }
+
+  &:last-of-type::before {
+    height: calc(rem(12px) + $spacing-x4);
+    top: 0;
+  }
+
+  &:only-child::before {
+    height: calc(rem(12px) + $spacing-x4);
+    top: -$spacing-x4;
+
+    @include media-breakpoint-up(md) {
+      height: calc(rem(12px) + $spacing-x5);
+      top: -$spacing-x5;
+    }
+  }
+}
+
+.timelinePin {
+  top: calc(rem(12px) + $spacing-x4);
+  transform: translateX(-50%);
+  left: calc($spacing-x6 / 2);
+  background-color: #FCDCD0;
+  border-radius: 50%;
+  position: absolute;
+  height: rem(16px);
+  width: rem(16px);
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%);
+    background-color: $orange;
+    border-radius: 50%;
+    position: absolute;
+    height: rem(6px);
+    width: rem(6px);
+    display: block;
+    content: "";
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.cardWrapper {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+}
+
+.cardHeader {
+  flex-direction: column-reverse;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+}
+
+.timeStamp {
+  @include font-size($text-body-3);
+  margin-bottom: $spacing-x2;
+  align-items: center;
+  flex-direction: row;
+  grid-column: 1 / 3;
+  color: $gray-800;
+  grid-row: 1 / 2;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 4 / 5;
+    margin-left: auto;
+    margin-bottom: 0;
+  }
+
+  svg {
+    margin-right: $spacing-x1;
+    height: rem(12px);
+    width: rem(12px);
+  }
+}
+
+.cardContent {
+  flex-direction: column;
+  row-gap: $spacing-x3;
+  display: flex;
+  width: 100%;
+  
+  @include media-breakpoint-up(md) {
+    column-gap: $spacing-x3;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    row-gap: 0;
+  }
+}
+
+.postText {
+  align-items: flex-start;
+  flex-direction: column;
+  grid-column: 2 / 3;
+  display: flex;
+  width: 100%;
+}
+
+.postTitle {
+  @include font-size($text-body-1, 700);
+  margin-bottom: $spacing-x2;
+  align-items: center;
+  flex-direction: row;
+  color: $gray-900;
+  width: auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  svg {
+    margin-left: $spacing-x1;
+    height: rem(16px);
+    width: rem(16px);
+  }
+}
+
+.postMessage {
+  @include font-size($text-body-2);
+  color: $gray-800;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.postImage {
+  @include border-radius(rem(8px));
+  justify-content: center;
+  flex-direction: column;
+  flex: 0 0 rem(180px);
+  align-items: center;
+  grid-column: 1 / 2;
+  position: relative;
+  height: rem(200px);
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    height: rem(135px);
+    width: rem(180px);
+  }
+}
+
+.videoButton {
+  border-radius: 50% !important;
+  height: rem(48px) !important;
+  background-color: $white;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: rem(48px);
+  display: flex;
+  z-index: 3;
+
+  svg {
+    height: rem(12px);
+    width: rem(12px);
+    color: $white;
+    fill: $orange;
+  }
+}

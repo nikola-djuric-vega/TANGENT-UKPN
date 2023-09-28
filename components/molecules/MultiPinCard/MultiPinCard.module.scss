@@ -1,0 +1,211 @@
+@import '../../../styles/includes/';
+
+.wrapper {
+  min-width: 100%;
+
+  @include media-breakpoint-up(md) {
+    grid-column: span 4;
+
+    &[data-is-wide='true'] {
+      grid-column: span 6;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: $spacing-x3;
+  border-top-right-radius: $spacing-x3;
+  padding: $spacing-x2 $spacing-x3;
+  background-color: $white;
+}
+
+.updatedText {
+  @include font-size($text-body-4);
+
+  color: $gray-700;
+  margin-bottom: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: $spacing-x3;
+  border-bottom-right-radius: $spacing-x3;
+  padding: $spacing-x2 $spacing-x3;
+  background-color: $white;
+}
+
+.body {
+  background-color: $bg-grey;
+  padding: $spacing-x3;
+  border-top: 1px solid $gray-500;
+  border-bottom: 1px solid $gray-500;
+}
+
+.title {
+  @include font-size($textH5);
+
+  margin-bottom: $spacing-x1;
+}
+
+.bodyCopy {
+  @include font-size($text-body-3);
+
+  color: $gray-700;
+}
+
+.infoPanel {
+  background-color: $white;
+  border-radius: $spacing-x2;
+  border: 1px solid $gray-500;
+  padding: $spacing-x3 $spacing-x2;
+  color: $gray-800;
+
+  svg {
+    width: rem(24px);
+    height: rem(24px);
+  }
+}
+
+.infoPanelSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: $spacing-x2;
+  padding: $spacing-x2 0;
+  border-bottom: 1px solid $gray-500;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.infoPanelHeading {
+  display: flex;
+  column-gap: $spacing-x1;
+  align-items: center;
+  position: relative;
+
+  &[data-is-clickable='true'] {
+    cursor: pointer;
+  }
+}
+
+.infoPanelHeadingText {
+  margin-bottom: 0;
+  flex-grow: 1;
+
+  strong {
+    color: $gray-900;
+  }
+}
+
+.roadsList {
+  @include font-size($text-body-3);
+
+  margin-left: $spacing-x4;
+  margin-bottom: 0;
+  padding: 0;
+  list-style-type: none;
+  color: $gray-700;
+}
+
+.postcodeArrowDownIcon {
+  color: $orange;
+}
+
+.popUp {
+  @include border-radius($border-radius-desktop, true, true, false, false);
+  max-height: calc(100% - #{rem(196px)});
+  background-color: $white;
+  flex-direction: column;
+  justify-self: flex-end;
+  align-self: flex-end;
+  padding: $spacing-x3;
+  margin-top: auto;
+  display: flex;
+  height: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: rem(594px);
+    max-height: none;
+    border-radius: 0;
+    height: 100%;
+
+    &[data-is-small='true'] {
+      filter: drop-shadow(0px 2px 20px rgba(49, 53, 72, 0.1));
+      @include border-radius($border-radius-desktop);
+      width: rem(400px);
+      height: auto;
+      left: 50%;
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: white;
+        position: absolute;
+        height: rem(17px);
+        width: rem(17px);
+        display: block;
+        content: '';
+        left: 50%;
+        top: 0;
+      }
+    }
+  }
+}
+
+.closeButton {
+  height: auto !important;
+  align-self: flex-end;
+
+  svg {
+    height: rem(24px);
+    width: rem(24px);
+  }
+}
+
+.overlayIcon {
+  margin-bottom: $spacing-x2;
+  margin-top: $spacing-x5;
+  align-self: center;
+  height: rem(48px);
+  width: rem(48px);
+}
+
+.popUpTitle {
+  margin-bottom: $spacing-x4;
+  text-align: center;
+}
+
+.affectedPostcodes {
+  flex-direction: row;
+  align-self: center;
+  gap: $spacing-x1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+  width: auto;
+}
+
+.postcode {
+  @include font-size($text-body-3);
+  background-color: $bg-blue;
+  border-radius: rem(4px);
+  min-width: rem(79px);
+  text-align: center;
+  padding: rem(4px);
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    min-width: rem(100px);
+  }
+}

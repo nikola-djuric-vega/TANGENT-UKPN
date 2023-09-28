@@ -1,0 +1,262 @@
+@import '../../../styles/includes';
+
+.AreaChecker {
+  margin: 0 auto $spacing-x5 auto;
+  position: relative;
+
+  &[data-remove-bottom-margin='true'] {
+    margin-bottom: 0;
+  }
+}
+
+.inner {
+  grid-template-rows: auto minmax($spacing-x10, auto) minmax(rem(262px), auto);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: $spacing-x6 minmax(rem(329px), auto) $spacing-x6;
+  }
+}
+
+.form {
+  @include border-radius($border-radius-mobile, false, true, true, false);
+  padding: $spacing-x3 $spacing-x3 $spacing-x3 0;
+  border: solid 1px $gray-500;
+  background-color: $white;
+  grid-column: 1 / -1;
+  position: relative;
+  grid-row: 1 / 3;
+  z-index: 2;
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-desktop, false, true, true, false);
+    padding: $spacing-x6 $spacing-x10 $spacing-x6 0;
+    grid-column: 1 / 7;
+    grid-row: 1 / 3;
+  }
+
+  &::before {
+    background-color: $white;
+    border: solid $gray-500;
+    border-width: 1px 0;
+    position: absolute;
+    display: block;
+    height: 100%;
+    content: '';
+    width: 100%;
+    z-index: -1;
+    left: -99%;
+    top: 0;
+  }
+
+  .areaCheckerTitle {
+    margin-bottom: 0;
+    color: $gray-900;
+  }
+
+  .areaCheckerText {
+    margin: $spacing-x2 0 $spacing-x3;
+    color: $gray-900;
+  }
+
+  .areaCheckerButton {
+    margin-top: $spacing-x4;
+  }
+}
+
+.iconWrapper {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-desktop, false, true, true, false);
+    display: block;
+  }
+}
+
+.iconCircle {
+  background-color: $dark-blue;
+  padding: $spacing-x2;
+  border-radius: 50%;
+  position: absolute;
+  height: rem(222px);
+  width: rem(222px);
+  color: $mid-blue;
+  bottom: rem(-30px);
+  right: rem(-50px);
+}
+
+.background {
+  grid-column: 1 / -1;
+  position: relative;
+  grid-row: 2 / 5;
+  z-index: 0;
+
+  @include media-breakpoint-up(xl) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 4;
+  }
+
+  &::after {
+    @include border-radius($border-radius-mobile, false, false, false, true);
+    background: $gray-100;
+    position: absolute;
+    display: block;
+    height: 100%;
+    content: '';
+    width: 150%;
+    z-index: -1;
+    left: 0;
+    top: 0;
+
+    @include media-breakpoint-up(lg) {
+      @include border-radius($border-radius-desktop, false, false, false, true);
+    }
+  }
+
+  &[data-is-successful='true']::after {
+    background: $radial-gradient;
+  }
+}
+
+.imageWrapper {
+  max-width: rem(450px);
+  justify-self: center;
+  align-self: flex-end;
+  grid-column: 1 / -1;
+  position: relative;
+  grid-row: 3 / 4;
+  width: 100%;
+  z-index: 0;
+
+  @include media-breakpoint-up(lg) {
+    height: calc(100% - $spacing-x6);
+    min-width: rem(650px);
+    grid-column: unset;
+    position: absolute;
+    max-width: unset;
+    grid-row: unset;
+    width: 50%;
+    bottom: 0;
+    right: 0;
+  }
+
+  &[data-is-desktop] {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
+  &[data-is-mobile] {
+    display: block;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+}
+
+.response {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1 /-1;
+  position: relative;
+  color: $gray-900;
+  overflow: hidden;
+  grid-row: 3 /4;
+  display: flex;
+
+  &[data-is-successful='true'] {
+    color: $white;
+    .bgIcon svg,
+    .text svg {
+      color: $white;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: calc(100% - $spacing-x6);
+    position: absolute;
+    grid-column: unset;
+    grid-row: unset;
+    width: 50%;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.bgIcon {
+  transform: translateY(-50%);
+  position: absolute;
+  height: rem(450px);
+  width: rem(450px);
+  display: none;
+  right: 0;
+  top: 50%;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+
+  svg {
+    transform: translateX(45%);
+    color: $gray-400;
+    opacity: 0.2;
+    right: 0;
+  }
+}
+
+.text {
+  padding: $spacing-x3 $spacing-x1;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: rem(20px);
+  align-items: center;
+  display: flex;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    margin-left: rem(35px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 $spacing-x6;
+    margin-left: 0;
+  }
+
+  svg {
+    height: rem(40px);
+    width: rem(40px);
+    color: $orange;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .title {
+    margin: $spacing-x2 0 $spacing-x1;
+    @include font-size($textH5);
+    text-align: center;
+  }
+
+  .sub {
+    @include font-size($text-body-2);
+    text-align: center;
+    margin: 0 auto;
+
+    a {
+      text-decoration: underline;
+      color: $orange;
+    }
+  }
+}

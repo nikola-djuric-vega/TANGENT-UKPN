@@ -1,0 +1,63 @@
+@import '../../../styles/includes';
+
+.container {
+  display: grid;
+  background-color: $gray-50;
+  padding-bottom: 10px;
+  @include media-breakpoint-up(sm) {
+    width: fit-content;
+  }
+}
+
+.elementContainer {
+  display: grid;
+  background-color: $white;
+}
+
+.repeatedContent {
+  padding-top: 10px;
+  background-color: $gray-50;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.viewButton {
+  background-color: $white;
+}
+
+.addContentButton {
+  margin: $spacing-x3 $spacing-x1 $spacing-x3 0;
+  justify-self: end;
+  min-width: min-content;
+}
+
+.deleteContentButton {
+  float: right;
+  justify-self: end;
+  justify-content: end;
+  margin-right: 0;
+  margin-bottom: 10px;
+  & > p {
+    @include font-size($text-body-2);
+  }
+}
+
+.addCopiedContentButton {
+  margin-bottom: $spacing-x3;
+  margin-right: $spacing-x1;
+  justify-self: end;
+}
+
+.addingButtonText {
+  @include font-size($text-body-3);
+  width: 100%;
+  padding: $spacing-x2 $spacing-x3;
+  height: rem(56px);
+}
+
+.removeButtonContainer {
+  background-color: $gray-50;
+  padding-bottom: 10px;
+  padding-top: $spacing-x3;
+  width: 100%;
+}

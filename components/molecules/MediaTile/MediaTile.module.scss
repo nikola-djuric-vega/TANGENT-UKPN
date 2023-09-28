@@ -1,0 +1,77 @@
+@import '../../../styles/includes';
+
+.MediaTile {
+  @include border-radius($border-radius-desktop, true, true, true, true);
+  background-color: $white;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+
+.description {
+  padding: $spacing-x3;
+  color: $gray-900;
+
+  strong {
+    font-weight: 400;
+  }
+
+  * {
+    margin-bottom: $spacing-x2;
+    font-weight: 400;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @include font-size($textH6);
+  }
+
+  p {
+    @include font-size($text-body-2);
+  }
+}
+
+.assetWrapper {
+  justify-content: center;
+  position: relative;
+  width: 100%;
+
+  img:focus {
+    border: 3px solid $black !important;
+  }
+
+  svg {
+    width: rem(48px);
+    height: rem(48px);
+    fill: $orange;
+    color: $orange;
+    padding: $spacing-x2;
+    border-radius: 50%;
+    background-color: $white;
+
+    @include media-breakpoint-up(md) {
+      width: rem(72px);
+      height: rem(72px);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    svg {
+      background-color: $orange;
+      fill: $white;
+      color: $white;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

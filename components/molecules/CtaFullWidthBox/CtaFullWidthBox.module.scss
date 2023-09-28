@@ -1,0 +1,123 @@
+@import '../../../styles/includes';
+
+.ctaFullWidthBox {
+  margin-bottom: $spacing-x5;
+  display: flex;
+  flex-direction: column;
+
+  &[data-remove-bottom-margin='true'] {
+    margin-bottom: 0;
+  }
+
+  &[data-is-one-column='false'] {
+    .innerWrapper {
+      column-gap: 0;
+    }
+  }
+}
+
+.ctaItem {
+  @include border-radius($border-radius-mobile);
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  padding: $spacing-x4 $spacing-x3;
+  background-color: $dark-blue;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+
+  [data-is-one-column='false'] & {
+    &:nth-child(1) {
+      @include border-radius($border-radius-mobile, true, true, false, false);
+
+      @include media-breakpoint-up(md) {
+        @include border-radius($border-radius-mobile, true, false, false, true);
+        grid-row: 1 / 2;
+        grid-column: 1 / 7;
+        flex-direction: column;
+      }
+    }
+
+    &:nth-child(2) {
+      @include border-radius($border-radius-mobile, false, false, true, true);
+      grid-row: 2 / 3;
+
+      @include media-breakpoint-up(md) {
+        @include border-radius(
+          $border-radius-desktop,
+          false,
+          true,
+          true,
+          false
+        );
+        grid-row: 1 / 2;
+        grid-column: 7 / -1;
+        flex-direction: column;
+      }
+    }
+
+    &:last-of-type {
+      background-color: $mid-blue;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-x7 $spacing-x6;
+  }
+}
+
+.textWrapper {
+  @include media-breakpoint-up(md) {
+    width: 50%;
+
+    [data-is-one-column='false'] & {
+      width: 100%;
+    }
+  }
+}
+
+.title {
+  color: $white;
+  margin-bottom: $spacing-x2;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+.text {
+  @include font-size($text-body-1);
+  color: $white;
+  margin-bottom: $spacing-x4;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+.ctasWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: $spacing-x2;
+  -webkit-tap-highlight-color: transparent;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    flex-wrap: wrap;
+    gap: $spacing-x3;
+    justify-content: center;
+    align-items: flex-start;
+
+    [data-is-one-column='false'] & {
+      flex-direction: row;
+    }
+  }
+}
+.cta {
+  width: 100%;
+}

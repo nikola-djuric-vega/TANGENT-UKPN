@@ -1,0 +1,34 @@
+@import '../../../styles/includes/';
+
+.StormFeed {
+  flex-direction: column;
+  align-self: flex-start;
+  display: flex;
+}
+
+.stormHeader {
+  justify-content: flex-start;
+  margin-bottom: $spacing-x3;
+  flex-direction: row;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x5;
+  }
+}
+
+.stormTitle {
+  margin-left: $spacing-x2;
+  margin-bottom: 0;
+}
+
+.posts {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.loadMoreButton {
+  margin-top: $spacing-x4;
+  align-self: center;
+}

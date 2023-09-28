@@ -1,0 +1,49 @@
+@import '../../../styles/includes';
+
+.content {
+  grid-column: 1/-1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 1/-1;
+  }
+
+  &[data-is-panel='true'] {
+    padding-left: $spacing-x3;
+    padding-right: $spacing-x3;
+  }
+}
+
+.title {
+  @include font-size($textH4);
+  color: $gray-900;
+  margin-bottom: $spacing-x1;
+
+  &[data-is-panel='true'] {
+    text-align: center;
+  }
+}
+
+.items {
+  margin: 0;
+}
+
+.viewMoreLinkWrapper {
+  text-align: center;
+  padding: $spacing-x2;
+  margin: 0;
+}
+
+.viewMoreLink {
+  text-decoration: none;
+  color: $gray-900;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+    color: $gray-900;
+  }
+
+  svg {
+    margin-left: $spacing-x1;
+  }
+}

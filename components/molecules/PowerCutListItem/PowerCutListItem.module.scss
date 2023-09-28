@@ -1,0 +1,527 @@
+@use 'sass:math';
+@import '../../../styles/includes';
+
+.powerCutListItem {
+  border-bottom: 1px solid $gray-500;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: $spacing-x3 0;
+  pointer-events: none;
+  position: relative;
+  text-align: left;
+  display: flex;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid $gray-500;
+  }
+
+  @include media-breakpoint-up(lg) {
+    border-bottom: 1px solid $gray-500;
+    padding: 0 $spacing-x2 $spacing-x2;
+    background-color: $bg-grey;
+    text-decoration: none;
+    pointer-events: all;
+    flex-direction: row;
+    border-top: none;
+    display: flex;
+
+    &:hover {
+      background-color: $bg-purple;
+    }
+
+    &:nth-of-type(2n) {
+      background-color: $white;
+
+      &:hover {
+        background-color: $bg-purple;
+      }
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+.mobileAccordion {
+  transform: all 0.5s ease-in-out;
+  overflow: hidden;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    text-decoration: none;
+    gap: $spacing-x2;
+    display: flex;
+  }
+}
+
+.toggleButton {
+  -webkit-tap-highlight-color: transparent;
+
+  svg {
+    height: rem(32px);
+    width: rem(32px);
+    color: $orange;
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.fieldType {
+  padding: $spacing-x1 $spacing-x2;
+  border-radius: 100px;
+  flex-direction: row;
+  display: flex;
+  font-weight: 700;
+
+  &[data-type='Unplanned'] {
+    background-color: transparentize($color: $light-orange, $amount: 0.8);
+  }
+
+  &[data-type='Planned'] {
+    background-color: transparentize($color: $blue, $amount: 0.8);
+  }
+
+  &[data-type='Restored'] {
+    background-color: transparentize($color: $success-green, $amount: 0.8);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  svg {
+    margin-right: $spacing-x1;
+    height: rem(24px);
+    width: rem(24px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-width: fit-content;
+    white-space: nowrap;
+  }
+
+  @include media-breakpoint-down(md) {
+    align-items: center;
+  }
+}
+
+.strapLine {
+  padding-right: $spacing-x3;
+  position: relative;
+
+  &:after {
+    transform: translatey(-50%);
+    position: absolute;
+    border-radius: 50%;
+    height: rem(12px);
+    width: rem(12px);
+    display: block;
+    content: '';
+    top: 50%;
+    right: 0;
+
+    [data-type='Unplanned'] & {
+      background-color: $light-orange;
+    }
+
+    [data-type='Planned'] & {
+      background-color: $blue;
+    }
+
+    [data-type='Restored'] & {
+      background-color: $success-green;
+    }
+  }
+}
+
+.fieldLabel,
+.moreInfoLabel {
+  @include font-size($text-body-3);
+  margin-bottom: $spacing-x1;
+  border: solid $gray-500;
+  border-width: 0 1px;
+  align-items: center;
+  color: $gray-900;
+  display: flex;
+  margin: 0;
+
+  svg {
+    margin-right: $spacing-x1;
+    height: rem(16px);
+    width: rem(16px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.moreInfoLabel {
+  @include border-radius($border-radius-mobile, true, true, false, false);
+  border-top: 1px solid transparent;
+  transition: border-top 0.25s;
+  background-color: $bg-grey;
+  padding: 0 $spacing-x2;
+  transition: all 0.25s;
+  margin-bottom: 0;
+
+  [data-is-active='true'] & {
+    border-radius: 0;
+    overflow: hidden;
+  }
+}
+
+.fieldLabelHeadline {
+  @include font-size($textH9, 700);
+  padding-top: $spacing-x1;
+  color: $gray-800;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 $spacing-x1 0;
+    padding: 0;
+  }
+}
+
+.fieldLabelInfo {
+  margin-bottom: $spacing-x2;
+  color: $gray-700;
+}
+
+.powerCutType,
+.powerCutPostcodes,
+.powerCutReference,
+.powerCutCustomers {
+  @include font-size($text-body-3);
+  color: $gray-800;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    @include font-size($text-body-4);
+    padding: $spacing-x2 rem(20px);
+    min-width: rem(140px);
+    margin-bottom: 0;
+    width: 8%;
+  }
+}
+
+.powerCutType {
+  @include font-size($text-body-2);
+  justify-content: space-between;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    padding: $spacing-x2 0;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.powerCutPostcodes {
+  @include border-radius($border-radius-mobile);
+  border: 1px solid $gray-500;
+  background-color: $bg-grey;
+  transition: all 0.25s;
+  padding: $spacing-x2;
+
+  [data-is-active='true'] & {
+    @include border-radius($border-radius-mobile, true, true, false, false);
+    border-bottom: 1px solid transparent;
+  }
+
+  .fieldLabel {
+    margin-bottom: $spacing-x1;
+    border: none;
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include font-size($text-breadcrumb);
+    background-color: transparent;
+    padding: $spacing-x2 0;
+    height: fit-content;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-width: 17%;
+    border: none;
+    width: 25%;
+  }
+}
+
+.reference {
+  @include font-size($text-body-3);
+  margin: $spacing-x2 0;
+  color: $gray-700;
+
+  @include media-breakpoint-up(lg) {
+    margin: $spacing-x1 0 0;
+  }
+}
+
+.affectedIcon {
+  color: $gray-900 !important;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+.referenceLink {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.powerCutInfo {
+  @include border-radius($border-radius-mobile, true, true, true, true);
+  @include font-size($text-body-4);
+  border: 1px solid $gray-500;
+  background-color: $bg-grey;
+  padding: 0 $spacing-x2;
+  transition: all 0.25s;
+  color: $gray-800;
+  border-top: none;
+  width: 100%;
+
+  [data-show-answer='true'] & {
+    @include border-radius($border-radius-mobile, false, false, true, true);
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-color: transparent;
+    margin-bottom: 0;
+    display: flex;
+    border: none;
+    padding: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.powerCutReference {
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $gray-900;
+  }
+}
+
+.fieldLabelExtraInfo {
+  @include font-size($text-body-3);
+  justify-content: space-between;
+  background-color: $bg-grey;
+  border: solid $gray-500;
+  border-width: 0 1px;
+  padding: $spacing-x2;
+  color: $gray-900;
+  display: flex;
+  margin: 0;
+
+  svg {
+    margin-right: $spacing-x1;
+    height: rem(16px);
+    width: rem(16px);
+    color: $gray-900;
+  }
+
+  &:last-of-type {
+    @include border-radius($border-radius-mobile, false, false, true, true);
+    border-bottom: 1px solid $gray-500;
+    padding-top: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-color: transparent;
+    justify-content: center;
+    margin-left: auto;
+    min-width: 17%;
+    display: flex;
+    border: none;
+    padding: 0;
+
+    &:last-of-type {
+      border-bottom: none;
+      margin-left: unset;
+      border-radius: 0;
+      min-width: 20%;
+      height: auto;
+    }
+  }
+}
+
+.fielLabelHeadlineTime {
+  color: $orange;
+}
+
+.timeReported {
+  @include font-size($text-body-3);
+  align-items: center;
+  color: $gray-900;
+  display: flex;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.day {
+  @include font-size($text-body-2, 400);
+  color: $gray-900;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: $spacing-x2;
+    white-space: nowrap;
+    height: fit-content;
+    align-items: center;
+    width: fit-content;
+    display: flex;
+  }
+}
+
+.customersAffectedNumber,
+.time {
+  @include font-size($text-body-2, 700);
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    justify-content: center;
+    padding: $spacing-x2;
+    font-weight: 400;
+    display: flex;
+    width: 100%;
+  }
+}
+
+.dayPart {
+  margin-right: $spacing-x1/2;
+}
+
+.time {
+  padding-left: $spacing-x1;
+  position: relative;
+  padding-right: 0;
+
+  &:before {
+    background-color: $gray-900;
+    transform: translateY(-50%);
+    position: absolute;
+    height: rem(2px);
+    width: rem(2px);
+    display: block;
+    left: rem(0px);
+    content: '';
+    top: 50%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-left: $spacing-x1;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.customersAffectedNumber {
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+  }
+}
+
+.viewOnMap {
+  -webkit-tap-highlight-color: transparent;
+  margin: $spacing-x3 auto 0;
+  min-width: rem(200px);
+  width: fit-content;
+  height: rem(40px);
+  max-width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.customersAffected {
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.powerCutTypeWrapper {
+  @include media-breakpoint-up(lg) {
+    min-width: rem(200px);
+    width: 16%;
+  }
+}
+
+.headlineWrapper {
+  background-color: $bg-grey;
+  border: solid $gray-500;
+  padding: 0 $spacing-x2;
+  border-width: 0 1px;
+
+  .fieldLabelExtraInfo {
+    padding: $spacing-x1 0 $spacing-x2;
+    border-width: 0 0 1px;
+    border-radius: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-color: transparent;
+    padding: $spacing-x2 0;
+    min-width: 18%;
+    border: none;
+    width: 100%;
+
+    .fieldLabelExtraInfo {
+      justify-content: flex-start;
+      border-bottom: none;
+      color: $gray-700;
+      padding: 0;
+    }
+  }
+}
+
+.chevron {
+  svg {
+    margin-right: 0 !important;
+  }
+}
+
+.moreInfoLabelInner {
+  border-top: 1px solid transparent;
+  transition: border-top 0.25s;
+  padding-top: $spacing-x2;
+  width: 100%;
+  margin: 0;
+
+  [data-is-active='true'] & {
+    border-top: 1px solid $gray-500;
+  }
+}
+
+.custAffecWrapper {
+  border-top: 1px solid $gray-500;
+  justify-content: space-between;
+  padding-top: $spacing-x2;
+  display: flex;
+  width: 100%;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    border: none;
+  }
+}

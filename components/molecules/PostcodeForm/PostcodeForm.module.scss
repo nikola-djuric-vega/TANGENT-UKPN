@@ -1,0 +1,51 @@
+@import '../../../styles/includes/';
+
+.postcodeForm {
+  position: relative;
+}
+
+.content {
+  padding: $spacing-x4 rem(60px) $spacing-x4 $spacing-x5;
+  border-bottom: rem(1px) solid $mid-blue;
+  margin-bottom: 0;
+  background-color: $dark-blue;
+}
+
+.postCodeSearch {
+  margin-bottom: $spacing-x3;
+
+  div {
+    border-radius: 0;
+  }
+}
+
+.description {
+  margin-bottom: $spacing-x2;
+  color: $white;
+}
+
+.destinationLink {
+  margin-bottom: $spacing-x2;
+  width: fit-content;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: none;
+  max-width: 100%;
+
+  &[data-has-address-set='true'] {
+    pointer-events: all;
+  }
+}
+
+.downloadLinkWrapper {
+  padding: $spacing-x4 rem(60px) $spacing-x4 $spacing-x5;
+  background-color: $dark-blue;
+}
+
+.downloadLink {
+  -webkit-tap-highlight-color: transparent;
+  color: $white;
+
+  span {
+    margin-left: 0;
+  }
+}

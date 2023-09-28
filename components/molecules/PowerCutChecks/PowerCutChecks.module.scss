@@ -1,0 +1,87 @@
+@import '../../../styles/includes';
+
+.meterType {
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.meterTypeHeading {
+  padding-bottom: $spacing-x5;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0;
+  width: 100%;
+
+  &::after {
+    background-color: $gray-300;
+    transform: translate(-50%);
+    position: absolute;
+    height: rem(1px);
+    display: block;
+    width: 100vw;
+    content: '';
+    bottom: 0;
+    left: 50%;
+  }
+}
+
+.meterTypeColumns {
+  justify-content: center;
+  flex-direction: column;
+  padding: $spacing-x5;
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  &:first-of-type {
+    border-bottom: 1px solid $gray-300;
+
+    @include media-breakpoint-up(md) {
+      border-right: 0.45px solid $gray-300;
+      border-bottom: none;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 50%;
+
+    &:last-of-type {
+      border-left: 0.45px solid $gray-300;
+    }
+  }
+}
+
+.meterTypeSubHeading {
+  @include font-size($textH5);
+  text-align: center;
+}
+
+.imageWraper {
+  margin-bottom: $spacing-x3;
+  position: relative;
+  width: 100%;
+}
+
+.meterTypeButtons {
+  @include font-size($text-body-1);
+  text-decoration: underline;
+  text-align: left;
+  color: $red;
+
+  &:hover {
+    text-decoration: underline;
+    color: $orange;
+  }
+
+  svg {
+    margin-left: $spacing-x1;
+    color: $blue;
+  }
+}

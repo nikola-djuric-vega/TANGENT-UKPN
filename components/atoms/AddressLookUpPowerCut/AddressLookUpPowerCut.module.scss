@@ -1,0 +1,485 @@
+@import '../../../styles/includes/';
+
+.addressSearchBar {
+  justify-content: space-between;
+  border: 1px solid $gray-600;
+  border-radius: rem(100px);
+  background-color: $white;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-down(sm) {
+    &[data-is-power-cut-header='true'] {
+      border: none;
+    }
+  }
+}
+
+.addressSearchBarInput {
+  @include font-size($text-body-2);
+  margin: $spacing-x2 $spacing-x3;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding: 0;
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:placeholder {
+    color: $gray-700;
+  }
+
+  @include media-breakpoint-down(sm) {
+    [data-is-power-cut-header='true'] & {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+.lensButton {
+  height: rem(48px);
+  margin: rem(4px);
+  flex: 0 0 auto;
+  min-width: unset;
+  width: rem(48px);
+
+  @include media-breakpoint-down(md) {
+    [data-is-power-cut-header='true'] & {
+      padding: 0 $spacing-x2;
+      width: auto;
+    }
+  }
+
+  svg {
+    height: rem(16px);
+    width: rem(16px);
+  }
+}
+
+.lensButtonText {
+  display: none;
+  visibility: hidden;
+
+  @include media-breakpoint-down(sm) {
+    [data-is-power-cut-header='true'] & {
+      display: inline-block;
+      visibility: visible;
+      margin-right: $spacing-x1;
+    }
+  }
+}
+
+.addressPopUpModal {
+  @include border-radius($border-radius-mobile, true, true, false, false);
+  max-height: calc(100% - $spacing-x8);
+  padding-bottom: $spacing-x4;
+  background-color: $white;
+  justify-self: flex-end;
+  flex-direction: column;
+  position: relative;
+  margin: auto 0 0 0;
+  overflow: scroll;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-desktop);
+    padding-top: $spacing-x10;
+    max-height: rem(680px);
+    max-width: rem(648px);
+    overflow: hidden;
+    margin: auto 0;
+  }
+}
+
+.modalControls {
+  background-color: $white;
+  padding: $spacing-x3;
+  position: sticky;
+  display: flex;
+  width: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+  }
+}
+
+.backButton,
+.closeModal {
+  position: relative;
+  color: $gray-900;
+
+  svg {
+    height: rem(16px);
+    width: rem(16px);
+
+    @include media-breakpoint-up(lg) {
+      height: rem(24px);
+      width: rem(24px);
+    }
+  }
+}
+
+.closeModal {
+  margin-left: auto;
+}
+
+.searchLocation,
+.inputField {
+  padding: $spacing-x2 $spacing-x3;
+  border: rem(1px) solid $gray-600;
+  @include border-radius(8px);
+  background-color: $white;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  color: $dark-blue;
+  height: rem(56px);
+  display: flex;
+
+  &[data-error='true'] {
+    @include form-field-error;
+  }
+
+  input {
+    @include font-size($text-body-2);
+    margin: 0 $spacing-x1;
+    border: none;
+    width: 100%;
+
+    &:focus {
+      outline: rem(1px) solid $dark-blue;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-left: $spacing-x1;
+      margin-right: 0px;
+    }
+  }
+}
+
+.searchLocation {
+  margin: $spacing-x3 $spacing-x2 0 $spacing-x2;
+
+  @include media-breakpoint-up(lg) {
+    margin: $spacing-x3 $spacing-x6 0 $spacing-x6;
+  }
+}
+
+.inputField {
+  margin: 0 $spacing-x2 $spacing-x3 $spacing-x2;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 $spacing-x6 $spacing-x3 $spacing-x6;
+  }
+
+  &[data-error='true'] {
+    @include form-field-error;
+  }
+}
+
+.inputFieldError {
+  @include font-size($text-body-4);
+  transform: translateY(50%);
+  padding: 0 $spacing-x1;
+  background: $white;
+  position: absolute;
+  margin-bottom: 0;
+  color: $red;
+  bottom: 0;
+}
+
+.recentSearch {
+  margin: 0 $spacing-x2 $spacing-x3 $spacing-x2;
+  flex-direction: column;
+  text-align: left;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 $spacing-x6 $spacing-x3 $spacing-x6;
+  }
+}
+
+.recentResultLabel {
+  @include font-size($text-body-2);
+  margin-bottom: $spacing-x2;
+  color: $gray-700;
+}
+
+.recentSearchItems {
+  flex-direction: column;
+  max-height: rem(380px);
+  display: flex;
+}
+
+.addressLookUpResults {
+  margin: 0 $spacing-x2 $spacing-x2 $spacing-x2;
+  padding-right: $spacing-x1;
+  flex-direction: column;
+  position: relative;
+  overflow-y: scroll;
+  max-height: 100%;
+  display: flex;
+
+  &::-webkit-scrollbar {
+    border-radius: 100px;
+    width: rem(2px);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-500;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $orange;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 $spacing-x3 $spacing-x2 $spacing-x6;
+    padding-right: $spacing-x3;
+  }
+}
+
+.addressOption {
+  padding: $spacing-x3 0 $spacing-x3 $spacing-x1;
+  @include font-size($text-body-1);
+  border-top: solid 1px $gray-600;
+  justify-content: space-between;
+  flex-direction: row;
+  text-align: left;
+  color: $gray-900;
+  display: flex;
+  width: 100%;
+
+  span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  &:last-of-type {
+    border-bottom: solid 1px $gray-600;
+  }
+
+  svg {
+    height: rem(16px);
+    width: rem(16px);
+    color: $orange;
+
+    @include media-breakpoint-up(lg) {
+      height: rem(24px);
+    }
+  }
+}
+
+.loader {
+  padding: 0 0 $spacing-x3 $spacing-x1;
+  border-bottom: solid 1px $gray-600;
+  @include font-size($text-body-1);
+  margin: 0 $spacing-x6;
+  align-items: flex-end;
+  flex-direction: row;
+  color: $gray-900;
+  margin-bottom: 0;
+  display: flex;
+
+  span {
+    animation: dotPulse 1.5s infinite linear;
+    margin-left: rem(2px);
+    animation-delay: 0.25s;
+    display: inherit;
+
+    &::before {
+      animation: dotPulse 1.5s infinite linear;
+      animation-delay: 0s;
+    }
+
+    &::after {
+      animation: dotPulse 1.5s infinite linear;
+      animation-delay: 0.5s;
+    }
+
+    &::after,
+    &::before {
+      position: relative;
+      display: block;
+      content: '.';
+    }
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    color: transparentize($gray-900, 1);
+  }
+
+  50% {
+    color: transparentize($gray-900, 0);
+  }
+
+  100% {
+    color: transparentize($gray-900, 1);
+  }
+}
+
+.dnoMessage,
+.addressNotFound {
+  margin: 0 $spacing-x2 0;
+  @include border-radius(rem(16px));
+  padding: $spacing-x3 $spacing-x6;
+  border: 1px solid $gray-600;
+  background-color: $white;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 $spacing-x6 0;
+  }
+
+  > svg {
+    margin-bottom: $spacing-x2;
+    height: rem(40px);
+    width: rem(40px);
+  }
+}
+
+.titleDno {
+  @include font-size($text-body-1);
+  display: inline-block;
+
+  p {
+    margin-bottom: $spacing-x2;
+  }
+}
+
+.dnoImage {
+  margin-bottom: $spacing-x4;
+  position: relative;
+  width: rem(202px);
+  display: block;
+}
+
+.contactDno {
+  @include font-size($text-body-2);
+  margin-bottom: $spacing-x3;
+  color: $gray-700;
+}
+
+.linkDno,
+.phoneDno {
+  margin-bottom: $spacing-x2;
+  width: auto;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  svg {
+    height: rem(16px);
+    width: rem(16px);
+  }
+}
+
+.rpcLink {
+  @include font-size($text-body-2);
+  margin-top: $spacing-x1;
+  color: $gray-700;
+}
+
+.addressNotFoundText {
+  @include font-size($text-body-2);
+  text-align: center;
+  color: $gray-700;
+
+  p {
+    margin-bottom: $spacing-x1;
+
+    &:first-of-type {
+      @include font-size($text-body-1);
+      color: $gray-700;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.addressNotFoundButton {
+  margin-top: $spacing-x1;
+}
+
+.promptMessage,
+.confirmButton {
+  transform: translateX(-50%);
+  bottom: $spacing-x4;
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+}
+
+.promptMessage {
+  max-width: calc(100% - $spacing-x6);
+  padding: $spacing-x2 $spacing-x3;
+  background-color: $white;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 0;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    max-width: rem(228px);
+  }
+}
+
+.closeButton {
+  min-width: rem(16px) !important;
+  border-radius: 100% !important;
+  background-color: $gray-600;
+  overflow: hidden;
+
+  &[data-is-menu-open='true'] {
+    pointer-events: none;
+  }
+
+  svg {
+    height: rem(16px);
+    width: rem(16px);
+  }
+
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+    right: $spacing-x1;
+  }
+}
+
+.mapWrapper {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.searchButton {
+  @include media-breakpoint-down(sm) {
+    margin-left: -$spacing-x1;
+  }
+
+  svg {
+    height: rem(24px);
+    color: $gray-800;
+    width: rem(24px);
+  }
+}

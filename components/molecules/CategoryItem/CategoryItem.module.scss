@@ -1,0 +1,28 @@
+@import '../../../styles/includes';
+
+.categoryButton {
+  border: 1px solid $gray-600;
+  border-radius: 100px;
+  padding: $spacing-x2 $spacing-x3;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  color: $gray-900;
+  -webkit-tap-highlight-color: transparent;
+
+  &[data-is-active='true'] {
+    background: $dark-blue;
+    color: $white;
+
+    svg {
+      color: $white;
+    }
+  }
+
+  svg {
+    margin-right: $spacing-x1;
+    width: rem(24px);
+    height: rem(24px);
+    color: $red;
+  }
+}

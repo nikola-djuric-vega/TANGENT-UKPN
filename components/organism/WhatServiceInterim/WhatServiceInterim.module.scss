@@ -1,0 +1,129 @@
+@import '../../../styles/includes/';
+
+.inner {
+  grid-template-rows: repeat(2, auto);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: repeat(1, auto);
+  }
+}
+
+.navigation {
+  margin-bottom: $spacing-x4;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    border-right: solid 1px $gray-600;
+    padding-right: $spacing-x7;
+    grid-column: 1 / 5;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-x3;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $spacing-x4;
+  }
+}
+
+.tabs {
+  margin-bottom: -$spacing-x2;
+  flex-direction: row;
+  overflow-x: scroll;
+  scroll-padding: 0;
+  gap: $spacing-x2;
+  display: flex;
+  width: 100%;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+    margin-bottom: 0;
+    display: flex;
+    gap: unset;
+  }
+}
+
+.tabButton {
+  border-radius: rem(100px) !important;
+  padding: $spacing-x2 $spacing-x3;
+  justify-content: flex-start;
+  border: solid $gray-600;
+  width: fit-content;
+  border-width: 1px;
+  text-align: left;
+  flex-shrink: 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: $spacing-x3 0 $spacing-x3 $spacing-x2;
+    @include font-size($textH7);
+    border-radius: 0 !important;
+    border: solid $gray-600;
+    border-width: 0 0 1px 0;
+    width: 100%;
+  }
+
+  &[data-active='true'] {
+    background-color: $dark-blue;
+    color: $white;
+    border: none;
+
+    @include media-breakpoint-up(lg) {
+      border-bottom: solid 1px $gray-600;
+      background-color: transparent;
+      font-weight: 700;
+      color: $gray-900;
+
+      svg {
+        color: unset;
+      }
+
+      &::before {
+        background-color: $dark-blue;
+        transform: translateY(-50%);
+        border-radius: rem(100px);
+        position: absolute;
+        height: rem(34px);
+        width: rem(4px);
+        content: '';
+        top: 50%;
+        left: 0;
+      }
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+    
+  }
+
+  svg {
+    margin-right: $spacing-x2;
+    height: rem(24px);
+    width: rem(24px);
+  }
+}
+
+.slide {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  grid-row: 2 / 3;
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 5 / -1;
+    grid-row: 1 / 2;
+  }
+}

@@ -1,0 +1,38 @@
+@import '../../../styles/includes/';
+
+.tabbedContent {
+}
+
+.moduleTitle {
+  @include font-size($textH4, 700);
+  padding: 0 $spacing-x2;
+  grid-column-start: 1;
+  grid-column: 1 / -1;
+  color: $gray-900;
+  font-weight: 400;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 0 $spacing-x5 0;
+    grid-column: 2 / -2;
+    margin: 0;
+  }
+}
+
+.content {
+  grid-column: 1 / -1;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    min-height: rem(626px);
+    height: auto;
+    height: fit-content;
+    grid-column: 2 / -2;
+    position: relative;
+    margin: 0;
+  }
+
+  @include media-breakpoint-up(xl) {
+    // min-height: rem(530px);
+  }
+}

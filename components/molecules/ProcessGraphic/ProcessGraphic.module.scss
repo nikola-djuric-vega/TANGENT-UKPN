@@ -1,0 +1,127 @@
+@import '../../../styles/includes/';
+
+.processGraphic {
+}
+
+.content {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: $gray-900;
+}
+
+.title {
+  font-weight: 400;
+  margin-bottom: $spacing-x1;
+}
+
+.subtitle {
+  @include font-size($text-body-1);
+  margin-bottom: 0;
+}
+
+.list {
+  margin-top: $spacing-x4;
+  flex-direction: column;
+  gap: $spacing-x4;
+  display: flex;
+  margin-top: $spacing-x4;
+
+  @include media-breakpoint-up(lg) {
+    justify-content: center;
+    flex-direction: row;
+    gap: $spacing-x6;
+    margin-top: $spacing-x5;
+  }
+}
+
+.listItem {
+  position: relative;
+  display: flex;
+
+  &:last-of-type {
+    .verticalArrow {
+      display: none;
+    }
+
+    .horizontalArrow {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+    width: rem(224px);
+  }
+}
+
+.iconsWrapper {
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $spacing-x3;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+  }
+}
+
+.stepIcon {
+  svg {
+    height: rem(40px);
+    width: rem(40px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    svg {
+      height: rem(56px);
+      width: rem(56px);
+    }
+  }
+}
+
+.horizontalArrow {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    transform: translateY(-50%);
+    position: absolute;
+    display: block;
+    left: 98%;
+    top: 50%;
+
+    svg {
+      height: rem(16px);
+      width: rem(56px);
+    }
+  }
+}
+
+.stepText {
+  @include font-size($text-body-4);
+  margin-left: $spacing-x2;
+  color: $gray-900;
+  text-align: left;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.stepHeading {
+  @include font-size($text-body-1, 700);
+  margin-bottom: 0;
+  color: $gray-900;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.stepSubheading {
+  @include font-size($text-body-2);
+  color: $gray-900;
+  margin: 0;
+}

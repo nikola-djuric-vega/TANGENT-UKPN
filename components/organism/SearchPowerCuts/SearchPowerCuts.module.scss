@@ -1,0 +1,105 @@
+@import '../../../styles/includes/';
+
+.inner {
+  grid-template-rows: repeat(2, auto);
+}
+
+.search {
+  @include border-radius($border-radius-mobile, true, true, false, false);
+  background-color: $dark-blue;
+  flex-direction: column;
+  padding: $spacing-x3;
+  grid-column: 1 / -1;
+  align-self: start;
+  grid-row: 1 / 2;
+  display: flex;
+
+  &::only-child {
+    @include border-radius($border-radius-mobile);
+
+    @include media-breakpoint-up(md) {
+      @include border-radius($border-radius-desktop);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop, true, true, false, false);
+    justify-content: center;
+    padding: $spacing-x6;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.image {
+  margin-right: $spacing-x3;
+  position: relative;
+  width: rem(64px);
+  flex-shrink: 0;
+  display: block;
+}
+
+.text {
+  margin-top: $spacing-x2;
+  color: $white;
+
+  @include media-breakpoint-up(md) {
+    margin-right: $spacing-x3;
+    margin-top: 0;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-x1;
+
+  @include media-breakpoint-up(md) {
+    margin-right: $spacing-x3;
+  }
+}
+
+.header {
+  @include font-size($text-body-1);
+  margin-bottom: $spacing-x4;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.addressLookup {
+  justify-self: center;
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    max-width: rem(295px);
+  }
+
+  @include media-breakpoint-up(md) {
+    width: rem(409px);
+    margin-left: auto;
+    max-width: unset;
+  }
+}
+
+.powerCutItems {
+  @include border-radius($border-radius-mobile, false, false, true, true);
+  grid-template-columns: repeat(1, 1fr);
+  background-color: $bg-purple;
+  padding: $spacing-x2;
+  grid-column: 1 / -1;
+  gap: $spacing-x3;
+  overflow: hidden;
+  grid-row: 2 / 3;
+  display: grid;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 0.5fr);
+    padding: $spacing-x5;
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-desktop, false, false, true, true);
+    grid-template-columns: repeat(3, 0.33fr);
+    padding: $spacing-x5;
+  }
+}

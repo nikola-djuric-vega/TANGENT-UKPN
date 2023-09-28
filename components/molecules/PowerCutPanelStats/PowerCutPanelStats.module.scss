@@ -1,0 +1,73 @@
+@import '../../../styles/includes/';
+
+.wrapper {
+  display: flex;
+  padding: $spacing-x3 0;
+
+  &[data-has-calls='false'] {
+    padding: $spacing-x3 $spacing-x5;
+  }
+}
+
+.stat {
+  flex: 1 1 auto;
+  border-right: 1px solid $gray-300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.statIcon {
+  margin-bottom: $spacing-x2;
+
+  svg {
+    max-width: rem(40px);
+  }
+
+  @include media-breakpoint-up(md) {
+    svg {
+      max-width: rem(54px);
+    }
+  }
+}
+
+.postcodeStat {
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+
+    .statText {
+      text-decoration: underline;
+    }
+  }
+}
+
+.statText {
+  @include font-size($text-body-3);
+  line-height: 1.5;
+  max-width: rem(96px);
+  color: $gray-900;
+  text-align: center;
+
+  .postcodeStat & {
+    color: $mid-blue;
+  }
+}
+
+.statValue {
+  @include font-size($textH7);
+  color: $gray-900;
+
+  .postcodeStat & {
+    color: $mid-blue;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

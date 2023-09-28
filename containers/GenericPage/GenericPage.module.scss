@@ -1,0 +1,12 @@
+@import '../../styles/includes';
+
+.main {
+  @include container-max-width;
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  grid-row: 2 / 3;
+  z-index: 3;
+}

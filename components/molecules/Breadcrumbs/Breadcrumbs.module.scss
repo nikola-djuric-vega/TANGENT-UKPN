@@ -1,0 +1,53 @@
+@import '../../../styles/includes';
+
+.Breadcrumbs {
+  padding: $spacing-x1 0;
+  flex-direction: column;
+  z-index: 3;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+}
+
+.inner {
+  @include site-grid(true);
+}
+
+.BreadcrumbsTrail {
+  justify-content: flex-start;
+  flex-direction: row;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.BreadcrumbsItem {
+  @include font-size($text-breadcrumb);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  color: $gray-700;
+  height: 100%;
+
+  @include media-breakpoint-down(sm) {
+    height: auto;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:after {
+    @include css-svg-icon('icon_chevron_right', $gray-800);
+    @include font-size($text-breadcrumb);
+    margin: 0 $spacing-x1 $spacing-x1;
+    width: rem(12px);
+    height: rem(12px);
+    display: block;
+  }
+
+  &[data-current='true']:after {
+    display: none;
+  }
+}

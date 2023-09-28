@@ -1,0 +1,19 @@
+@import '../../styles/includes';
+
+.loaderWrapper {
+  background-color: transparentize($gray-300, 0.5);
+  justify-content: center;
+  z-index: $zindex-over;
+  align-items: center;
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  div {
+    height: rem(100px);
+    width: rem(100px);
+  }
+}

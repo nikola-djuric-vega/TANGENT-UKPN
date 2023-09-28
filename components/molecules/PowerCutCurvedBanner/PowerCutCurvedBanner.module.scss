@@ -1,0 +1,110 @@
+@import '../../../styles/includes/';
+
+.powerCutCurvedBanner {
+  clip-path: url('#curvedBottomBorder');
+  transform: translateZ(0px);
+  margin-bottom: $spacing-x5;
+  background-color: $gray-300;
+  padding: $spacing-x5 0;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    clip-path: url('#curvedBottomBorder');
+    background-color: $gray-100;
+    height: calc(100% - 1px);
+    position: absolute;
+    content: '';
+    width: 100%;
+    z-index: 0;
+    left: 0%;
+    top: 0;
+  }
+}
+
+
+.inner {
+  background-color: $gray-100;
+  grid-template-rows: auto;
+  position: relative;
+  @include site-grid;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.bannerContent {
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  align-items: center;
+  grid-row: 1 / 1;
+  display: flex;
+}
+
+.iconWrapper {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.tagLine {
+  @include font-size($text-body-3);
+  margin: $spacing-x1 0 0 0;
+  color: $gray-900;
+}
+
+.powerCutCurvedBannerTitle {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.powerCutCurvedBannerSubTitle {
+  @include font-size($text-body-1);
+  margin-top: $spacing-x1;
+  text-align: center;
+}
+
+.powerCutCurvedBannerStatus {
+  margin-top: $spacing-x1;
+  margin-bottom: 0;
+  color: $gray-400;
+}
+
+.svgMask {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.backButton {
+  @include font-size($text-body-2);
+  justify-self: flex-start;
+  grid-column: 1 / 4;
+  color: $gray-900;
+  align-self: start;
+  grid-row: 1 / 1;
+  display: none;
+
+  svg {
+    margin-right: $spacing-x1;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &[data-is-back-button-visible='false'] {
+    display: none;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
+
+  @include media-breakpoint-down(sm) {
+    align-self: center;
+    margin-bottom: $spacing-x4;
+  }
+}

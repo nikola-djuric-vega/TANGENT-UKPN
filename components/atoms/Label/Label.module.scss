@@ -1,0 +1,14 @@
+@import '../../../styles/includes/';
+
+.label {
+  @include font-size($text-body-2);
+  width: 100%;
+  font-weight: 600;
+  line-height: 1.5;
+  color: $gray-900;
+  -webkit-font-smoothing: antialiased;
+}
+
+.asterisk {
+  color: $red;
+}

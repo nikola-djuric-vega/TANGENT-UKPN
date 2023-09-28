@@ -1,0 +1,34 @@
+@import '../../../styles/includes/';
+
+.radioButtonsWithImages {
+  flex-direction: wrap;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.radioButtonsLabel {
+  margin-bottom: $spacing-x1;
+  width: 100%;
+}
+
+.imageWrapper {
+  margin-bottom: $spacing-x2;
+  position: relative;
+  width: 100%;
+}
+
+.buttonsGrid {
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: $spacing-x2;
+  row-gap: $spacing-x2;
+  display: grid;
+  width: 100%;
+
+  label {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

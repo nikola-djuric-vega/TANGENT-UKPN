@@ -1,0 +1,75 @@
+@import '../../../styles/includes';
+
+.doubleCTA {
+  @include media-breakpoint-up(md) {
+    padding: 0;
+  }
+}
+
+.doubleCtaBox {
+  flex-direction: column;
+  grid-column: 1/-1;
+  gap: $spacing-x4;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.doubleCtaBoxItem {
+  @include border-radius($border-radius-mobile);
+  padding: $spacing-x4 $spacing-x3;
+  border: solid 1px $gray-600;
+  flex-direction: column;
+  text-align: left;
+  display: flex;
+  
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+    padding: $spacing-x7;
+    width: 50%;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-x2;
+  color: $gray-900;
+}
+
+.text {
+  -webkit-font-smoothing: antialiased;
+  @include font-size($text-body-2);
+  margin-bottom: $spacing-x4;
+  color: $gray-900;
+}
+
+.link {
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    width: fit-content;
+  }
+}
+
+.doubleCtaBoxLinks {
+  flex-direction: column;
+  gap: $spacing-x3;
+  margin-top: auto;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.cta {
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: fit-content;
+  }
+}

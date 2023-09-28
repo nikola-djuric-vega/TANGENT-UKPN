@@ -1,0 +1,71 @@
+@import '../../../styles/includes/';
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $dark-blue;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modalContainer {
+  width: $form-width;
+  background-color: $white;
+  margin-top: 30px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.modalBody {
+  padding: 10px;
+}
+
+.modalHeader {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.locationContainer {
+  display: grid;
+}
+
+.instructions {
+  @include font-size($text-body-1);
+}
+
+.utmContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map {
+  height: 300px;
+  margin-top: $spacing-x2;
+}
+
+.utmInput {
+  width: 45%;
+  padding-bottom: $spacing-x1;
+}
+
+.label {
+  padding-top: $spacing-x1;
+  padding-bottom: $spacing-x1;
+  display: inline-block;
+}
+
+.closeButton {
+  @include font-size($text-body-1);
+  justify-self: end;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}

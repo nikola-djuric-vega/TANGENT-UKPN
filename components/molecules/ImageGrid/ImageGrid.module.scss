@@ -1,0 +1,56 @@
+@import '../../../styles/includes/';
+
+.containerClass {
+  background: $gray-100;
+}
+
+.imageGrid {
+  text-align: center;
+}
+
+.content {
+  grid-column: 1/-1;
+  color: $gray-900;
+  margin-bottom: -$spacing-x1;
+}
+
+.title {
+  grid-column: 1/-1;
+  font-weight: 700;
+  margin: $spacing-x5 0 $spacing-x3 0;
+
+  @include media-breakpoint-up(md) {
+    margin: $spacing-x6 0 $spacing-x4 0;
+  }
+}
+
+.gridItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(2px);
+  margin-bottom: $spacing-x6;
+
+  @include media-breakpoint-up(md) {
+    gap: rem(3px);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.gridItem {
+  background: $white;
+  position: relative;
+  height: rem(140px);
+  display: flex;
+  align-items: center;
+}
+
+.gridItemImage {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  width: auto;
+}

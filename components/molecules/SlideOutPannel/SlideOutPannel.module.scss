@@ -1,0 +1,57 @@
+@import '../../../styles/includes/';
+
+.slideOutPannel {
+  z-index: $zindex-over + 1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  top: 0;
+
+  &[data-closed='true'] {
+    &:before {
+      animation-name: opacityOff;
+    } 
+    .slideOutPannelWrapper {
+      animation-name: slideOut;
+    }
+  }
+
+  .slideOutPannelWrapper {
+    @include animate( slideIn, .5s, ease-in-out );
+    @include slide-in-from-right;
+    background-color: $dark-blue;
+    padding: $spacing-x4;
+    overflow-x: hidden;
+    position: relative;
+    margin-left: auto;
+    overflow-y: auto;
+    display: block;
+    color: $white;
+    height: 100%;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      min-width: 500px;
+      width: 30%;
+    }
+  }
+
+  &::before {
+    @include animate( opacityOn, .5s, ease-in-out );
+    background-color: transparentize($black, 0.5);
+    @include opacity-anim;
+    position: absolute;
+    height: 100%;
+    content: '';
+    width: 100%;
+    right: 0;
+    top: 0;
+  }
+}
+
+.slideOutPannelClose {
+  position: absolute;
+  right: $spacing-x3;
+  top: $spacing-x3;
+}

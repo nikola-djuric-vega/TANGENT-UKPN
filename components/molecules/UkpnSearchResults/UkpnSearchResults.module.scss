@@ -1,0 +1,31 @@
+@import '../../../styles/includes';
+
+.searchResults {
+  margin-bottom: $spacing-x6;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $spacing-x10;
+  }
+
+  .searchResultsLoader,
+  .inner {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .inner > p {
+    padding: $spacing-x5 0 $spacing-x2;
+    color: $gray-700;
+    margin-bottom: 0;
+  }
+
+  .searchResultsLoader {
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+
+    div {
+      width: rem(93px);
+    }
+  }
+}

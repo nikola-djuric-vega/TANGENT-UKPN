@@ -1,0 +1,41 @@
+@import '../../../styles/includes';
+
+.socialLinks {
+  max-width: rem(280px);
+  margin: 0 auto $spacing-x3 auto;
+
+  &[data-is-page-container='true'] {
+    max-width: rem(560px);
+  }
+}
+
+.content {
+  text-align: center;
+  margin-bottom: $spacing-x4;
+}
+
+.shareIcon {
+  margin-bottom: $spacing-x2;
+
+  svg {
+    width: rem(48px);
+    height: rem(48px);
+  }
+}
+
+.title {
+  @include font-size($textH7, 700);
+
+  color: $gray-900;
+  margin-bottom: $spacing-x3;
+}
+
+.iconsWrapper {
+  display: flex;
+  justify-content: center;
+
+  :global(.at-share-btn-elements) {
+    display: flex;
+    gap: $spacing-x2;
+  }
+}

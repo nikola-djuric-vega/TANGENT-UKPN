@@ -1,0 +1,252 @@
+@import '../../../styles/includes';
+
+.powerCutPanelTrackMyPowerCut {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $gray-50;
+  z-index: 1;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s ease-in-out;
+  transform: translateX(-100%);
+  padding-bottom: $spacing-x6;
+
+  &[data-active='true'] {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}
+
+.closeButton {
+  width: 100%;
+  color: $gray-900;
+  justify-content: center;
+  padding: $spacing-x3;
+  border-radius: 0;
+  @include font-size($text-body-3);
+
+  svg {
+    margin-right: $spacing-x1;
+  }
+
+  &[data-top] {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &[data-bottom] {
+    border-top: 1px solid $gray-300;
+  }
+}
+
+.trackerHeaderContainer {
+  text-align: center;
+  padding: $spacing-x4 0;
+}
+
+.trackerHeaderContainerTitle {
+  font-size: rem(36px);
+  color: $gray-900;
+}
+
+.trackerHeaderContainerEstimated {
+  font-size: rem(21px);
+  color: $gray-900;
+}
+
+.trackerHeaderContainerConfirmed {
+  font-size: rem(32px);
+  color: $orange;
+}
+
+.latestUpdate {
+  text-align: center;
+  padding: $spacing-x4 0 $spacing-x2 0;
+  font-weight: 400;
+  line-height: 1.1;
+  font-size: rem(22px);
+  color: $gray-900;
+}
+
+.informationNotice {
+  padding-left: rem(20px);
+  color: $gray-900;
+}
+
+.getTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: rem(180px);
+  position: relative;
+  text-align: center;
+  margin: 0 rem(20px) !important;
+  background-color: $gray-200;
+  border: 1px solid $gray-300;
+  border-radius: 5px;
+}
+
+.getTextContainerDescription {
+  color: $gray-900;
+}
+
+.getTextContainerButton span {
+  font-size: rem(18px);
+  color: $white;
+}
+
+.trackerStatus {
+  margin-bottom: 40px;
+}
+
+.trackerStatus {
+  ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+.trackerStatus {
+  li {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 0.5rem;
+    position: relative;
+  }
+  li:after,
+  li:before {
+    background-color: #bdbdbd;
+    content: '';
+    height: 2px;
+    position: absolute;
+    top: 24px;
+    z-index: 1;
+    opacity: 0.5;
+  }
+}
+.trackerStatus {
+  li:before {
+    left: 0;
+    right: 50%;
+  }
+  li:after {
+    left: 50%;
+    right: 0;
+  }
+  li:first-child:before,
+  li:last-child:after {
+    display: none;
+  }
+  li svg {
+    color: #fff;
+    height: 0.625rem;
+    left: 50%;
+    position: absolute;
+    top: 1.5rem;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 0.625rem;
+    z-index: 3;
+  }
+  li svg {
+    color: #bdbdbd;
+    top: 1rem;
+  }
+  li span {
+    font-size: 13px;
+    color: $gray-700;
+    display: inline-block;
+    padding-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+}
+@media (min-width: 992px) {
+  .trackerStatus li span {
+    font-size: 1rem;
+  }
+}
+
+.trackerStatus {
+  li span:before {
+    background-color: #fafafa;
+    border: 2px solid hsla(0, 0%, 74.1%, 0.5);
+    border-radius: 100%;
+    content: '';
+    height: 27px;
+    left: 50%;
+    position: absolute;
+    top: 10px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 27px;
+  }
+
+  li.trackerStatusActive:after,
+  li.trackerStatusActive:before {
+    background-color: #f76100;
+  }
+
+  li.trackerStatusActive span:before {
+    background-image: -o-linear-gradient(233deg, #ea750a, #e13000);
+    background-image: linear-gradient(217deg, #ea750a, #e13000);
+    border: none;
+  }
+
+  li.trackerStatusActive svg {
+    color: #fff;
+  }
+
+  li.trackerStatusActiveCurrent:after {
+    background-color: #bdbdbd;
+  }
+
+  li.trackerStatusActiveCurrent svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 11px;
+  }
+}
+
+@media (min-width: 768px) {
+  .trackerStatus {
+    li.trackerStatusActiveCurrent svg {
+      height: 2rem;
+      width: 2rem;
+      top: 10px;
+    }
+  }
+}
+.trackerStatus {
+  li.trackerStatusActiveCurrent span {
+    color: #30354a;
+    font-weight: 700;
+  }
+  li.trackerStatusActiveCurrent span:before {
+    height: 50px;
+    width: 50px;
+    top: -3px;
+  }
+}
+@media (min-width: 768px) {
+  .trackerStatus {
+    li.trackerStatusActiveCurrent span:before {
+      height: 58px;
+      width: 58px;
+    }
+  }
+}

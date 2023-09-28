@@ -1,0 +1,29 @@
+@import '../../../styles/includes';
+
+.layout {
+  @include container-max-width;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    border: solid $gray-300;
+    border-width: 0 1px;
+  }
+}
+
+.main {
+  padding-top: $ukpn-header;
+  position: relative;
+  display: block;
+  z-index: 3;
+
+  [data-is-storm='true'] & {
+    padding-top: 0;
+  }
+
+  @include media-breakpoint-up(header) {
+    padding-top: $ukpn-header-large;
+  }
+}

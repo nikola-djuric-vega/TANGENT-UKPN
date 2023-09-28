@@ -1,0 +1,68 @@
+@import '../../../styles/includes';
+
+$logo-width: 102px;
+$logo-width-lg: 138px;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  z-index: 10;
+  border-bottom: rem(1px) solid $gray-300;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+    padding-left: $spacing-x2;
+    height: rem(90px);
+  }
+
+  a {
+    display: flex;
+    padding: $spacing-x2;
+    border-bottom: rem(1px) solid $gray-300;
+    -webkit-tap-highlight-color: transparent;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+      border-bottom: none;
+    }
+
+    img {
+      width: rem($logo-width);
+      height: rem(33px);
+
+      @include media-breakpoint-up(lg) {
+        width: rem($logo-width-lg);
+        height: rem(58px);
+      }
+    }
+  }
+}
+
+.title {
+  @include font-size($textH5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $gray-900;
+  margin: $spacing-x3 auto;
+  text-align: center;
+  padding: 0 $spacing-x2;
+  flex: 1 1 auto;
+  max-width: $form-width;
+
+  @include media-breakpoint-up(lg) {
+    max-width: rem(650px);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: translateX(-50%);
+  }
+}

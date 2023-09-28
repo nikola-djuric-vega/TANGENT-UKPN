@@ -1,0 +1,119 @@
+@import '../../../styles/includes/';
+
+.mapLegend {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: rem(288px);
+  margin: $spacing-x1 $spacing-x1 0;
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  z-index: 0;
+}
+
+.cta {
+  position: relative;
+  background: 0;
+  border: 0;
+  background-color: $white;
+  box-shadow: 0 rem(1px) rem(2px) 0 rgb(0 0 0 / 20%);
+  border-radius: rem(2px);
+  padding: rem(4px) rem(12px);
+  margin: 0 0 0 $spacing-x1;
+  color: $gray-900;
+  font-size: $button-size-small;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: rem(3px);
+    outline-offset: rem(-3px);
+    outline: rem(5px) auto -webkit-focus-ring-color;
+  }
+
+  &[data-is-open='true'] {
+    &:after {
+      content: '';
+      bottom: rem(-12px);
+      left: 50%;
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border: rem(10px) solid hsl(0 0% 100% / 0%);
+      border-bottom-color: $white;
+      margin-left: rem(-10px);
+      z-index: 10;
+    }
+  }
+}
+
+.content {
+  max-height: calc(100vh - 9.25rem);
+  position: absolute;
+  top: $spacing-x5;
+  right: 0;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 rem(1px) rem(2px) 0 rgb(0 0 0 / 20%);
+  transition: height 0.25s ease-in-out;
+  pointer-events: none;
+  padding: 0;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+  }
+
+  &[data-is-open='true'] {
+    pointer-events: all;
+  }
+
+  &[data-is-open='true'][data-is-menu-open='true'] {
+    pointer-events: none;
+  }
+}
+
+.inner {
+  color: $gray-900;
+  padding: $spacing-x2;
+}
+
+.keyContentItem {
+  margin-bottom: rem(4px);
+  display: flex;
+  color: $gray-900;
+  padding: $spacing-x1 0;
+}
+
+.iconWrapper {
+  width: rem(23px);
+  height: rem(23px);
+  margin: 0 $spacing-x2 0 $spacing-x1;
+}
+
+.exploreButton {
+  padding: $spacing-x2;
+  color: $gray-900;
+  font-size: rem(16px);
+  border-radius: 0 !important;
+  border-top: rem(1px) solid $gray-200;
+  width: 100%;
+
+  svg {
+    margin-left: $spacing-x1;
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.message {
+  padding: $spacing-x2;
+  color: $gray-900;
+  font-size: 80%;
+  font-family: Roboto, Arial, sans-serif;
+}

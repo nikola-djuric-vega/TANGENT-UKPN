@@ -1,0 +1,179 @@
+@import '../../../styles/includes';
+
+.helpAndContact {
+  min-height: rem(480px);
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.mainTitle {
+  grid-column: 1/-1;
+  color: $gray-900;
+  font-weight: 400;
+}
+
+.subTitle {
+  @include font-size($text-body-2);
+  grid-column: 1/-1;
+  color: $gray-900;
+}
+
+.content {
+  grid-column: 1/-1;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  &[data-tab-is-open='true'] {
+    border: rem(1px) solid $gray-300;
+  }
+
+  @include media-breakpoint-up(lg) {
+    border: none;
+
+    &[data-tab-is-open='true'] {
+      border: none;
+    }
+  }
+}
+
+.helpAndContactContainer {
+  width: 100%;
+  min-height: rem(480px);
+  transition: transform 0.5s ease-in-out;
+}
+
+.tabsContainer {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  z-index: 10;
+
+  &[data-is-open='true'] {
+    transform: translateX(-100%);
+    z-index: 0;
+
+    @include media-breakpoint-up(lg) {
+      transform: none;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &[data-is-open='true'] {
+      transform: none;
+      z-index: 16;
+      pointer-events: none;
+    }
+  }
+}
+
+.tabContent {
+  background-color: $white;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+
+  &[data-is-open='true'] {
+    z-index: 15;
+    left: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    left: 0;
+  }
+}
+
+.innerTabContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  z-index: 15;
+}
+
+.frameBackground {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.desktopFrameBackground {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.frameContentWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: rem(1px) solid $gray-300;
+}
+
+.frameBackgroundText {
+  position: absolute;
+  width: 100%;
+  max-width: rem(600px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $gray-700;
+  text-align: center;
+  padding: 0 $spacing-x2;
+  z-index: 1;
+
+  @include media-breakpoint-up(lg) {
+    z-index: 2;
+  }
+}
+
+.frameBackgroundIconWrapper {
+  position: absolute;
+  width: rem(380px);
+  height: rem(380px);
+  bottom: rem(-70px);
+  right: rem(-75px);
+
+  svg {
+    color: $gray-300;
+    width: rem(380px);
+    height: rem(380px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    z-index: 1;
+  }
+}
+
+.borderWrapper {
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 70%;
+    height: 100%;
+    border: rem(1px) solid $gray-300;
+    z-index: 15;
+  }
+}

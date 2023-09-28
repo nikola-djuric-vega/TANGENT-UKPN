@@ -1,0 +1,115 @@
+@import '../../../styles/includes';
+
+.textBoxWithCTA {
+  grid-column: 1/-1;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+
+.ctaItem {
+  @include border-radius($border-radius-mobile);
+  padding: $spacing-x4 $spacing-x3;
+  position: relative;
+  background-color: $white;
+  border: 1px solid $gray-300;
+
+  &:last-of-type {
+    margin-top: $spacing-x3;
+  }
+
+  &[data-bg-colour='ocean-blue'] {
+    background-color: $mid-blue;
+    border: none;
+  }
+
+  &[data-bg-colour='midnight-blue'] {
+    background-color: $dark-blue;
+    border: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+    padding: $spacing-x5;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    &:last-of-type {
+      margin-top: 0;
+      margin-left: $spacing-x3;
+    }
+  }
+}
+
+.iconWrapper {
+  svg {
+    color: $white;
+    height: rem(48px);
+    width: rem(48px);
+    margin-bottom: $spacing-x3;
+  }
+
+  @include media-breakpoint-up(md) {
+    svg {
+      height: rem(56px);
+      width: rem(56px);
+    }
+  }
+}
+
+.title {
+  color: $gray-900;
+  font-weight: 400;
+  margin-bottom: 0;
+
+  [data-bg-colour='ocean-blue'] &,
+  [data-bg-colour='midnight-blue'] & {
+    color: $white;
+  }
+
+  @include media-breakpoint-up(md) {
+    &[data-has-text='false'] {
+      margin-bottom: $spacing-x4;
+    }
+  }
+}
+
+.text {
+  @include font-size($text-body-1);
+  margin-top: $spacing-x2;
+  color: $gray-900;
+  margin-bottom: 0;
+
+  [data-bg-colour='ocean-blue'] &,
+  [data-bg-colour='midnight-blue'] & {
+    color: $white;
+  }
+
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin: 0;
+    margin-top: $spacing-x2;
+    margin-bottom: $spacing-x4;
+  }
+}
+
+.link {
+  min-width: rem(240px);
+  max-width: 100%;
+  width: fit-content;
+  margin-top: $spacing-x4;
+
+  @include media-breakpoint-up(md) {
+    margin-top: auto;
+  }
+}

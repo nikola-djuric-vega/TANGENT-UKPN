@@ -1,0 +1,70 @@
+@import '../../../styles/includes/';
+
+.container {
+  display: grid;
+}
+
+.label {
+  padding-top: $spacing-x2;
+  margin-bottom: $spacing-x1;
+}
+
+.saveLink {
+  @include font-size($text-body-2, 700);
+  justify-self: end;
+  margin-bottom: $spacing-x3;
+  justify-self: end;
+  padding-right: 10px;
+  justify-content: end;
+  color: $red;
+  text-decoration: underline;
+}
+
+.saveLink:hover {
+  cursor: pointer;
+}
+
+.addressElement {
+  padding: 10px 0;
+  border-bottom: rem(1px) solid $gray-300;
+  display: flex;
+  justify-content: space-between;
+  background-color: $gray-50;
+  align-items: center;
+}
+
+.deleteLink {
+  @include font-size($text-body-3, 700);
+  justify-self: end;
+  padding-right: 10px;
+  justify-content: end;
+  justify-items: end;
+  color: $red;
+}
+
+.deleteLink:hover {
+  cursor: pointer;
+}
+
+.disableLink {
+  @include font-size($text-body-2, 700);
+  pointer-events: none;
+  color: $gray-500;
+  justify-self: end;
+  margin-bottom: $spacing-x3;
+  justify-self: end;
+  padding-right: 10px;
+  justify-content: end;
+  text-decoration: underline;
+}
+
+.addressItem {
+  padding-left: 10px;
+  overflow-wrap: break-word;
+  @include media-breakpoint-down(md) {
+    width: rem(180px);
+  }
+  @include media-breakpoint-up(md) {
+    width: rem(400px);
+  }
+}

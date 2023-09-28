@@ -1,0 +1,135 @@
+@import '../../../styles/includes';
+
+.formStepper {
+  background-color: $mid-blue;
+  padding: $spacing-x4 0;
+  margin-bottom: $spacing-x4;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.formSteps {
+  padding: 0 $spacing-x2 0 $spacing-x2;
+  justify-content: space-between;
+  max-width: rem($form-width);
+  align-items: flex-start;
+  flex-direction: row;
+  display: inherit;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.formStep {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: inherit;
+  color: $white;
+  flex: 1;
+  
+  p {
+    @include font-size($text-body-2);
+    text-align: center;
+    max-width: rem(172px);
+    margin-bottom: 0;
+    display: none;
+    opacity: .5;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+
+  svg {
+    color: $dark-blue;
+  }
+
+  &:first-of-type .formStepIndicator::before  {
+    display: none;
+  }
+
+  &:last-of-type .formStepIndicator::after {
+    display: none;
+  }
+
+  &[data-is-active='true'] {
+    span,
+    p {
+      font-weight: 600;
+      opacity: 1;
+    }
+  }
+
+  &[data-is-complete='true'] {
+    span {
+      background-color: $white;
+      opacity: 1;
+    }
+
+    & + .formStep .formStepIndicator::before,
+    .formStepIndicator::before,
+    .formStepIndicator::after,
+    p {
+      opacity: 1;
+    }
+  }
+}
+
+.formStepIndicator {
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 0;
+  display: inherit;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x1;
+  }
+
+  span {
+    background-color: $dark-blue;
+    border: solid $white 2px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    height: rem(32px);
+    width: rem(32px);
+    margin: 0 auto;
+    display: flex;
+    color: $gray-100;
+    opacity: .5;
+    z-index: 1;
+
+    @include media-breakpoint-up(md) {
+      height: rem(40px);
+      width: rem(40px);
+    }
+  }
+
+  &:before, &:after {
+    width: calc(50% - #{rem(16px)});
+    transform: translateY(-50%);
+    background-color: $white;
+    position: absolute;
+    height: rem(2px);
+    display: block;
+    opacity: .5;
+    content: '';
+    top: 50%;
+
+    @include media-breakpoint-up(md) {
+      width: calc(50% - #{rem(20px)});
+    }
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}

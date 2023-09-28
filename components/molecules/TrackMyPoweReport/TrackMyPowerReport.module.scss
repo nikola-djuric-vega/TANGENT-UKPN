@@ -1,0 +1,32 @@
+@import '../../../styles/includes';
+
+.reportsContainer {
+  position: relative;
+  margin: 0 rem(20px) !important;
+  background-color: $white;
+  border: 1px solid $gray-300;
+  border-radius: 5px;
+  padding: rem(15px);
+  margin-bottom: rem(20px) !important;
+}
+
+.reportsContainerDate {
+  font-weight: 700;
+  color: $gray-700;
+  font-size: rem(13px);
+}
+
+.reportsContainerTitle {
+  color: $orange;
+  line-height: 1.4;
+  font-size: rem(16px);
+  font-weight: 700;
+  margin-top: rem(5px);
+  margin-bottom: rem(20px);
+}
+
+.reportsContainerDescription {
+  color: $gray-700;
+  line-height: 1.4;
+  font-size: 16px;
+}

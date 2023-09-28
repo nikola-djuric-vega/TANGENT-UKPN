@@ -1,0 +1,53 @@
+@import '../../../styles/includes';
+
+.smartMeterInner {
+  grid-template-rows: repeat(4, auto);
+  margin: $spacing-x8 0 0;
+  text-align: center;
+}
+
+.smartMeterIcon {
+  margin-bottom: $spacing-x8;
+  justify-self: center;
+  grid-column: 2 / -2;
+  height: rem(106px);
+  width: rem(106px);
+  
+  @include media-breakpoint-up(md) {
+    grid-column: 5 / -5;
+  }
+
+  svg {
+    color: $orange;
+  }
+}
+
+.smartMeterTitle {
+  @include font-size($textH4);
+  margin-bottom: $spacing-x7;
+  grid-column: 1 / -1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 3 / -3;
+  }
+}
+
+.smartMeterSubtitle {
+  @include font-size($text-body-1);
+  margin-bottom: $spacing-x1;
+  grid-column: 1 / -1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 3 / -3;
+  }
+}
+
+.smartMeterBodyText {
+  @include font-size($text-body-2);
+  grid-column: 1 / -1;
+  color: $gray-700;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 3 / -3;
+  }
+}

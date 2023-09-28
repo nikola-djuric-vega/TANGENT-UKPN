@@ -1,0 +1,34 @@
+@import '../../../styles/includes';
+
+.formPage {
+  .title {
+    @include font-size($textH3);
+    margin-top: $spacing-x3;
+    color: $gray-900;
+    text-align: center;
+  }
+}
+
+.fieldsetItem {
+  display: flex;
+  justify-content: center;
+  border-bottom: rem(1px) solid $gray-300;
+  padding-bottom: $spacing-x6;
+  padding-top: $spacing-x6;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border: none;
+    padding-top: $spacing-x6;
+  }
+}
+
+.fieldsetItemInner {
+  padding: 0 $spacing-x2 0 $spacing-x2;
+  @include media-breakpoint-up(md) {
+    padding: 0;
+  }
+}

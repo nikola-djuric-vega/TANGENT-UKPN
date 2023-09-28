@@ -1,0 +1,44 @@
+@import '../../../styles/includes/';
+
+.postCodeSearch {
+  justify-content: space-between;
+  max-width: rem($form-width);
+  align-items: stretch;
+  flex-direction: row;
+  position: relative;
+  flex-wrap: wrap;
+  display: flex;
+
+  & > label {
+    margin-bottom: $spacing-x1;
+    width: auto;
+  }
+}
+
+.postCodeSearchFoundAddress {
+  flex-direction: column;
+  margin-top: $spacing-x4;
+  display: flex;
+  width: 100%;
+
+  p {
+    @include font-size($text-body-2);
+    margin: 0;
+
+    &:first-of-type {
+      margin-bottom: $spacing-x1;
+      font-weight: 700;
+    }
+  }
+}
+
+.layoutToggle {
+  position: absolute;
+  right: 0;
+  top: $spacing-x1;
+
+  & > button {
+    margin-bottom: $spacing-x1;
+    color: $blue;
+  }
+}

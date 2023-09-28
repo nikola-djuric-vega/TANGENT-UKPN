@@ -1,0 +1,38 @@
+@import '../../../styles/includes/';
+.textBoxesContainer {
+  grid-column: 1 / -1;
+  gap: $spacing-x3;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.textBox {
+  @include border-radius($border-radius-mobile);
+  padding: $spacing-x4 $spacing-x3;
+  @include font-size($text-body-2);
+  border: 1px solid $gray-300;
+  background-color: $white;
+  align-items: flex-start;
+  flex-direction: column;
+  font-weight: 400;
+  color: $gray-900;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+    width: calc(50% - ($spacing-x3 / 2));
+    flex-direction: column;
+    padding: $spacing-x5;
+    display: flex;
+    height: 100%;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-x1;
+}
+
+.link {
+  color: $gray-900;
+}

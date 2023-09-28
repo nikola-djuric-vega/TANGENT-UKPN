@@ -1,0 +1,109 @@
+@import '../../../styles/includes';
+
+.timePeriodMessage {
+  color: $gray-900;
+  margin-bottom: $spacing-x2;
+  @include font-size($text-body-2);
+}
+
+.dayLabelWrapper {
+  margin-bottom: $spacing-x1;
+
+  label {
+    font-weight: normal;
+  }
+}
+
+.radioButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-x4;
+  margin-bottom: $spacing-x3;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+}
+
+.noteMessage {
+  color: $gray-900;
+}
+
+.accessCheckboxWrapper {
+  padding-top: $spacing-x2;
+  padding-bottom: $spacing-x5;
+}
+
+.separator {
+  line-height: rem(25px);
+  margin-bottom: 0;
+}
+
+.timeSelectMessage {
+  display: flex;
+  padding-top: $spacing-x4;
+  color: $gray-900;
+}
+
+.timeSelectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-x4;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+}
+
+.timeSelectorItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: normal;
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.notAvailable {
+  @include border-radius(4px);
+  position: relative;
+  border: rem(2px) solid $red;
+}
+
+.notAvailableTitle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 99%;
+  white-space: nowrap;
+  color: $red;
+  font-weight: 700;
+  font-size: rem(20px);
+  background: $white;
+  padding: 0 $spacing-x1 0 $spacing-x1;
+}
+
+.notAvailableMessage {
+  padding: $spacing-x4;
+  text-align: center;
+  color: $gray-900;
+}
+
+.notAvailableContactDetails {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: $spacing-x1;
+  margin-top: $spacing-x2;
+}
+
+.phoneNumber {
+  text-decoration: underline;
+  min-width: unset;
+  color: $red;
+
+  @include font-size($textH3);
+}

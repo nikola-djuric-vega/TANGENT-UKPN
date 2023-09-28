@@ -1,0 +1,74 @@
+@import '../../../styles/includes/';
+
+.content {
+  position: relative;
+  padding-bottom: $spacing-x1;
+  background-color: $gray-50;
+
+  &[data-is-overlay='true'] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    overflow: auto;
+    transition: transform 0.3s, visibility 0.3s ease-in-out;
+    transform: translateX(-100%);
+    visibility: hidden;
+  }
+
+  &[data-is-overlay='true'][data-is-content-open='true'] {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}
+
+.componentsWrapper {
+  background-color: $white;
+  border-top: 1px solid $gray-300;
+  padding: $spacing-x3 $spacing-x1;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  @include font-size($text-body-3, 700);
+  width: 100%;
+  column-gap: $spacing-x1;
+  position: absolute;
+  color: $gray-900;
+  z-index: 2;
+  padding: $spacing-x2 $spacing-x2;
+}
+
+.ctas {
+  max-width: rem(280px);
+  width: 100%;
+  margin: $spacing-x6 auto $spacing-x3 auto;
+}
+
+.button {
+  max-width: rem(280px);
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include font-size($text-body-2);
+
+  span {
+    @include font-size($text-body-2);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  > div {
+    width: auto;
+  }
+
+  p {
+    margin: 0;
+  }
+}

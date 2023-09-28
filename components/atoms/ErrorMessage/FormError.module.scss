@@ -1,0 +1,31 @@
+@import '../../../styles/includes/';
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: $spacing-x1;
+  border-left: rem(2px) solid $red;
+  padding: $spacing-x2 $spacing-x2 $spacing-x2 $spacing-x2;
+  background-color: rgba($red, 0.08);
+  margin-top: $spacing-x1;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &[data-is-variant='true'] {
+    margin-top: 0;
+    border-left: 0;
+    background-color: $red;
+  }
+}
+
+.message {
+  @include font-size($text-body-4, 700);
+  color: $gray-900;
+
+  &[data-is-variant='true'] {
+    color: $white;
+    font-weight: normal;
+  }
+}

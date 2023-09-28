@@ -1,0 +1,53 @@
+@import '../../../styles/includes/';
+
+.powerCutItem {
+  -webkit-tap-highlight-color: transparent;
+  @include font-size($text-body-2);
+  @include border-radius(rem(8px));
+  @extend .ButtonHoverState;
+  background-color: $white;
+  text-decoration: none;
+  padding: $spacing-x3;
+  align-items: center;
+  position: relative;
+  color: $gray-900;
+  display: flex;
+
+  &:hover {
+    color: $gray-900;
+  }
+
+  svg {
+    margin-right: $spacing-x2;
+    height: rem(32px);
+    width: rem(32px);
+  }
+}
+
+.ButtonHoverState {
+  &:hover::after {
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    color: $gray-900;
+    opacity: 1;
+  }
+
+  &::after {
+    @include media-breakpoint-up(lg) {
+      transition: all 0.35s ease-in-out;
+      transform: translate(-50%, -50%);
+      border: 1.5px solid $dark-blue;
+      background-color: transparent;
+      border-radius: inherit;
+      pointer-events: none;
+      position: absolute;
+      display: block;
+      height: 100%;
+      content: '';
+      width: 100%;
+      opacity: 0;
+      left: 50%;
+      top: 50%;
+    }
+  }
+}

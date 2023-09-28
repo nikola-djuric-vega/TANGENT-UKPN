@@ -1,0 +1,93 @@
+@import '../../../styles/includes/';
+
+.tooltip {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tooltipContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: $spacing-x2;
+  position: relative;
+  padding: $spacing-x3 $spacing-x2 $spacing-x4 0;
+}
+
+.containerMessage {
+  @include font-size($text-body-3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: $white;
+  width: 100%;
+  z-index: 2;
+  -webkit-font-smoothing: antialiased;
+}
+
+.containerClose {
+  margin-bottom: $spacing-x2;
+  cursor: pointer;
+
+  svg {
+    width: rem(15px);
+    height: rem(15px);
+    color: $white;
+  }
+}
+
+.tooltipMessage {
+  width: 100%;
+}
+
+.tooltipContainer::after {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  display: block;
+  content: '';
+  background: $dark-blue;
+  z-index: 1;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.tooltipContainer::before {
+  @include border-radius(6px);
+  position: absolute;
+  top: -$spacing-x1;
+  left: -$spacing-x1;
+  content: '';
+  width: rem(32px);
+  height: rem(32px);
+  background: $dark-blue;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.tooltipButton {
+  @include font-size($text-body-3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-x1;
+  cursor: pointer;
+
+  &:hover span {
+    text-decoration: underline;
+  }
+
+  span {
+    color: $dark-blue;
+  }
+
+  svg {
+    color: $dark-blue;
+    width: rem(16px);
+    height: rem(16px);
+  }
+}

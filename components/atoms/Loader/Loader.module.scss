@@ -1,0 +1,31 @@
+@import '../../../styles/includes/';
+
+@include rotate-animation(forward-anim, -360deg);
+@include rotate-animation(backward-anim, 360deg);
+
+.Loader {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  svg {
+
+    &:first-of-type {
+      animation: backward-anim 1s linear infinite;
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    &:last-of-type {
+      animation: forward-anim 1s linear infinite;
+      position: absolute;
+      height: 75%;
+      width: 75%;
+    }
+  }
+}

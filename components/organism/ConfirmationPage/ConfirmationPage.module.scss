@@ -1,0 +1,32 @@
+@import '../../../styles/includes';
+
+.ConfirmationPage {
+  padding-bottom: rem(96px);
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.wrapper {
+}
+
+.inner {
+  @include site-grid;
+}
+
+.ConfirmationPageContent {
+  flex-direction: column;
+  grid-column: 2 / -2;
+  align-items: center;
+  text-align: center;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 4 / -4;
+  }
+
+  a {
+    margin-top: $spacing-x6;
+  }
+}

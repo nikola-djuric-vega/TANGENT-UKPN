@@ -1,0 +1,62 @@
+@import '../../../styles/includes';
+
+.panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $gray-50;
+  z-index: 1;
+  overflow: auto;
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0.3s ease-in-out;
+  transform: translateX(-100%);
+
+  &[data-active='true'] {
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}
+
+.closeButton {
+  width: 100%;
+  color: $gray-900;
+  justify-content: center;
+  padding: $spacing-x3;
+  border-radius: 0;
+  @include font-size($text-body-3);
+
+  svg {
+    margin-right: $spacing-x1;
+  }
+
+  &[data-top] {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &[data-bottom] {
+    border-top: 1px solid $gray-300;
+  }
+}
+
+.iconWrapper {
+  width: rem(94px);
+  height: rem(94px);
+  margin: 0 auto $spacing-x2;
+}
+
+.wrapper {
+  text-align: center;
+  padding: $spacing-x3 $spacing-x6;
+}
+
+.textUpdatesFailure {
+  @include font-size($text-body-1);
+  color: $mid-blue;
+}
+
+.textUpdatesTitle {
+  @include font-size($textH4);
+  color: $gray-900;
+}

@@ -1,0 +1,90 @@
+@import '../../../styles/includes';
+
+.isPowerOffCta {
+  background-color: $dark-blue;
+
+  padding: $spacing-x6 0;
+  width: 100%;
+}
+
+.ctaItem {
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1 / -1;
+  display: flex;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 2 / -2;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 4 / -4;
+  }
+
+  svg {
+    color: $white;
+  }
+}
+
+.icon {
+  background-color: $darker-blue;
+  margin-bottom: $spacing-x2;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 100%;
+  align-items: center;
+  position: relative;
+  height: rem(72px);
+  width: rem(72px);
+  display: flex;
+
+  &:after {
+    transform: translate(-50%, -50%);
+    border: 2px solid $red;
+    border-radius: 100%;
+    position: absolute;
+    height: rem(63px);
+    width: rem(63px);
+    display: block;
+    content: '';
+    left: 50%;
+    top: 50%;
+  }
+
+  svg {
+    height: rem(42px);
+    width: rem(74px);
+    color: $white;
+  }
+}
+
+.title,
+.body {
+  color: $white;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: $spacing-x2;
+  font-size: rem(24px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(42px);
+  }
+}
+
+.body {
+  margin-bottom: $spacing-x4;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.link {
+  max-width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: fit-content;
+  }
+}

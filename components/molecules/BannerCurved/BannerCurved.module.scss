@@ -1,0 +1,196 @@
+@import "../../../styles/includes";
+
+.inner {
+  grid-template-rows: min-content $spacing-x5 minmax(rem(210px), min-content);
+  height: 100%;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: minmax(rem(500px), min-content);
+    position: relative;
+  }
+}
+
+.bannerCopy {
+  @include border-radius($border-radius-mobile, true, true, false, false);
+  padding: $spacing-x5 $spacing-x3 $spacing-x10;
+  flex-direction: column;
+  align-self: stretch;
+  grid-column: 1 / -1;
+  position: relative;
+  grid-row: 1 / 3;
+  overflow: hidden;
+  display: flex;
+  color: $white;
+
+  &[data-is-dark-blue="true"] {
+    &::before {
+      background: $space-gradient;
+    }
+  }
+
+  &::after {
+    clip-path: polygon(
+      0% calc(100% - $spacing-x3),
+      100% calc(100% - $spacing-x8),
+      100% calc(100% - $spacing-x5),
+      0% 100%
+    );
+    background: white;
+    position: absolute;
+    display: block;
+    width: 100%;
+    content: "";
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    @include media-breakpoint-up(lg) {
+      clip-path: polygon(
+        calc(100% - $spacing-x6) 0%,
+        100% 0%,
+        calc(100% - ($spacing-x6 * 4)) 100%,
+        calc(100% - ($spacing-x6 * 5)) 100%
+      );
+    }
+  }
+
+  &::before {
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - $spacing-x5), 0% 100%);
+    background: $midnight-gradient;
+    position: absolute;
+    display: block;
+    width: 100%;
+    content: "";
+    z-index: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    @include media-breakpoint-up(lg) {
+      clip-path: polygon(0% 0%, 100% 0%, calc(100% - ($spacing-x6 * 5)) 100%, 0% 100%);
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-mobile, true, false, false, true);
+    padding: 90px calc($spacing-x10 + 180px) 90px $spacing-x10;
+    justify-content: center;
+    align-items: flex-start;
+    grid-column: 1 / 10;
+    text-align: left;
+    grid-row: 1 / 1;
+  }
+
+  * {
+    z-index: 1;
+  }
+}
+
+.tag {
+  @include font-size($text-body-1);
+  @include border-radius(2px);
+  background-color: $white;
+  padding: 0 $spacing-x2;
+  width: fit-content;
+  color: $dark-blue;
+}
+
+.title {
+  @include font-size($textH2);
+  margin-bottom: $spacing-x2;
+}
+
+.subHeader {
+  @include font-size($text-body-1);
+  margin-bottom: 0;
+}
+
+.backButtonDesktop {
+  @include font-size($text-body-3);
+  justify-self: flex-start;
+  margin: $spacing-x1 0;
+  align-self: start;
+  display: none;
+  color: $white;
+
+  svg {
+    transform: rotate(-180deg);
+    margin-right: $spacing-x1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    display: block;
+  }
+}
+
+.backButtonMobile {
+  @include font-size($text-body-2);
+  background-color: $gray-50;
+  padding: $spacing-x2 0;
+  grid-column: 1 / -1;
+  color: $dark-blue;
+  grid-row: 1 / 2;
+  display: block;
+  z-index: 0;
+
+  svg {
+    transform: rotate(-180deg);
+    margin-right: $spacing-x1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
+}
+
+.cTA {
+  margin-top: $spacing-x4;
+  min-width: rem(240px);
+  max-width: 100%;
+  width: fit-content;
+}
+
+.image {
+  @include border-radius($border-radius-mobile, false, false, true, true);
+  position: relative;
+  grid-column: 1/-1;
+  overflow: hidden;
+  grid-row: 2 / 4;
+  height: 100%;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    @include border-radius($border-radius-desktop, false, true, true, false);
+    grid-column: 7 / -1;
+    position: relative;
+    grid-row: 1 / 1;
+    display: block;
+    height: 100%;
+
+    img {
+      border-radius: unset;
+    }
+  }
+}
+
+.bottomLine,
+.topLine {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 1 / 8;
+    position: absolute;
+    display: block;
+    left: 0;
+  }
+}
+
+.bottomLine {
+  bottom: $spacing-x5;
+}
+
+.topLine {
+  top: $spacing-x5;
+}

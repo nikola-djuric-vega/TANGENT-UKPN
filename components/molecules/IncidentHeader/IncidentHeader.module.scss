@@ -1,0 +1,55 @@
+@import "../../../styles/includes";
+
+.incidentHeader {
+  margin-bottom: $spacing-x3;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x4;
+  }
+}
+
+.incidentHeaderTopLine {
+  @include font-size($text-body-1);
+  margin-bottom: $spacing-x2;
+  color: $gray-900;
+
+  & > *:last-child {
+    margin-bottom: 0
+  }
+}
+
+.incidentHeaderEstimate {
+  @include font-size($textH3);
+  margin-bottom: $spacing-x2;
+  text-align: center;
+  color: $orange;
+
+  &[data-storm-no-etr="true"] {
+    @include font-size($textH3);
+    color: $gray-900;
+    text-align: left;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0
+  }
+}
+
+.incidentHeaderBottomLine {
+  @include font-size($text-body-1);
+  text-align: center;
+  color: $gray-700;
+
+  & > *:last-child {
+    margin-bottom: 0
+  }
+}

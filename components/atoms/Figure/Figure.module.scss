@@ -1,0 +1,32 @@
+@import '../../../styles/includes/';
+
+.Figure {
+  position: relative;
+  width: 100%;
+  margin: 0;
+
+  img {
+    display: block;
+  }
+
+  figcaption {
+    background-color: transparentize($gray-900, 0.3);
+    align-items: center;
+    padding: $spacing-x2;
+    flex-direction: row;
+    position: absolute;
+    display: flex;
+    color: $white;
+    width: 100%;
+    bottom: 0;
+
+    svg {
+      margin-right: $spacing-x2;
+    }
+
+    p {
+      @include font-size($text-body-0);
+      margin-bottom: 0;
+    }
+  }
+}

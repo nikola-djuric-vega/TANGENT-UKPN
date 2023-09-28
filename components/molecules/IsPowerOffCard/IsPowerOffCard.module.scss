@@ -1,0 +1,35 @@
+@import '../../../styles/includes';
+
+.isPowerOffCard {
+  @include border-radius($border-radius-mobile);
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  text-align: center;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+  }
+}
+
+.content {
+  padding: $spacing-x4 $spacing-x3;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x5;
+  }
+}
+
+.heading {
+  margin-bottom: $spacing-x2;
+}
+
+.subTitle {
+  @include font-size($text-body-2);
+  color: $gray-700;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x4;
+  }
+}

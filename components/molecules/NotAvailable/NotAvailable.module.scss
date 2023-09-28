@@ -1,0 +1,48 @@
+@import '../../../styles/includes';
+
+.accessCheckboxWrapper {
+  padding-top: $spacing-x2;
+  padding-bottom: $spacing-x5;
+}
+
+.notAvailable {
+  @include border-radius(4px);
+  position: relative;
+  border: rem(2px) solid $red;
+}
+
+.notAvailableTitle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 99%;
+  white-space: nowrap;
+  color: $red;
+  @include font-size($text-body-4, 700);
+  background: $white;
+  padding: 0 $spacing-x1 0 $spacing-x1;
+}
+
+.notAvailableMessage {
+  padding: $spacing-x4;
+  text-align: center;
+  color: $gray-900;
+}
+
+.notAvailableContactDetails {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-x1;
+  margin-top: $spacing-x2;
+}
+
+.phoneNumber {
+  color: $red;
+  text-decoration: underline;
+  @include font-size($textH3);
+}
+
+.separator {
+  margin: auto 0;
+}

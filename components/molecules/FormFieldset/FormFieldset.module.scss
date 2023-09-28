@@ -1,0 +1,15 @@
+@import '../../../styles/includes';
+
+.formFieldSets {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.formFieldTitle {
+  @include font-size($textH5);
+  max-width: rem($form-width);
+  color: $gray-900;
+  font-weight: 400;
+  width: 100%;
+}

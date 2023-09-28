@@ -1,0 +1,37 @@
+@import '../../../styles/includes/';
+
+.iconWrapper {
+  position: relative;
+  margin-bottom: $spacing-x1;
+  width: rem(50px);
+  height: rem(50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: rem(40px);
+    height: rem(40px);
+  }
+
+  svg+svg {
+    width: rem(32px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.circularProgressSvg {
+  transform: rotate(-90deg);
+}
+
+.circularProgressSvgBg {
+  stroke: $mid-blue;
+}
+
+.circularProgressSvgValue {
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 0;
+}

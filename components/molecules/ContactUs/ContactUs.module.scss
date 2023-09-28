@@ -1,0 +1,155 @@
+@import '../../../styles/includes';
+
+.contactUs {
+  &[data-border='true'] {
+    @include border-radius($border-radius-mobile);
+    border: 4px solid $blue;
+  }
+  text-align: center;
+  grid-column: 1/-1;
+  color: $gray-900;
+
+  @include media-breakpoint-up(lg) {
+    &[data-border='true'] {
+      border-radius: rem(104px);
+      border: 8px solid $blue;
+    }
+  }
+}
+
+.contactUsItems {
+  grid-column: 1/-1;
+  @include border-radius($border-radius-mobile);
+
+  &[data-border='true'] {
+    border: 1px solid $blue;
+  }
+  margin: $spacing-x2;
+
+  @include media-breakpoint-up(md) {
+    &[data-is-panel='true'] {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    &[data-is-help='true'] {
+      .item {
+        width: 50%;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-x5 0;
+    border-radius: rem(88px);
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: $spacing-x5 $spacing-x6;
+  }
+}
+
+.item {
+  border-bottom: 1px solid $gray-300;
+  padding: $spacing-x4 0;
+  margin: 0 $spacing-x2;
+
+  &:last-child {
+    border: none;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 33.33%;
+    border: none;
+    border-right: 1px solid $gray-300;
+    padding: 0 $spacing-x5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      border: none;
+      padding-right: none;
+    }
+  }
+
+  &[data-is-panel='true'] {
+    width: auto;
+    padding: 0 $spacing-x4;
+  }
+}
+
+.icon {
+  margin-bottom: $spacing-x2;
+
+  & > svg {
+    width: rem(40px);
+    height: rem(40px);
+
+    @include media-breakpoint-up(md) {
+      width: rem(48px);
+      height: rem(48px);
+    }
+  }
+}
+
+.itemTitle {
+  font-weight: 400;
+  margin-bottom: $spacing-x2;
+}
+
+.itemText {
+  @include font-size($text-body-2);
+  margin-bottom: $spacing-x3;
+}
+
+.phoneNumbers {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-x2;
+  gap: $spacing-x2;
+
+  @include font-size($text-body-2);
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    margin-top: auto;
+  }
+}
+
+.or {
+  padding: 0 $spacing-x1;
+}
+
+.links {
+  display: flex;
+  gap: $spacing-x2;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: $spacing-x2;
+}
+
+.link {
+  @include font-size($text-body-2);
+  white-space: nowrap;
+}
+
+.social {
+  min-width: unset;
+
+  & > svg {
+    width: rem(56px);
+    height: rem(56px);
+
+    padding: rem(20px);
+  }
+}
+
+.iconWrapper {
+  border-radius: 50%;
+  border: 1.5px solid $gray-900;
+}

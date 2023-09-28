@@ -1,0 +1,26 @@
+@import '../../../styles/includes/';
+
+.incidentReason {
+  @include border-radius(rem(8px));
+  background-color: $bg-purple;
+  padding: $spacing-x3;
+  width: 100%;
+}
+
+.incidentReasonTitle {
+  @include font-size($text-body-2, 700);
+  margin-bottom: $spacing-x1;
+
+  & > *:last-child {
+    margin-bottom: 0
+  }
+}
+
+.incidentReasonDescription {
+  @include font-size($text-body-2);
+  margin-bottom: 0;
+
+  & > *:last-child {
+    margin-bottom: 0
+  }
+}

@@ -1,0 +1,140 @@
+@import '../../../styles/includes';
+
+.PaginationControls {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.ReactPaginate {
+  margin-bottom: $spacing-x2;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  display: inherit;
+  width: 100%;
+  padding: 0;
+  order: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+    width: auto;
+    order: 2;
+  }
+}
+
+.hideButtons {
+  display: none;
+}
+
+.prevButton,
+.nextButton {
+  padding: $spacing-x1 $spacing-x3 $spacing-x1;
+  @include font-size($text-body-2);
+  min-width: rem(145px) !important;
+  justify-content: space-between;
+  border: solid 1px $gray-400;
+  border-radius: rem(24px);
+  text-decoration: none;
+  align-items: center;
+  color: $gray-900;
+  cursor: pointer;
+  display: flex;
+  order: 2;
+
+  svg {
+    transition: all 0.2s ease-in-out;
+    color: $gray-900;
+  }
+
+  &:disabled {
+    color: $gray-300;
+    border-color: $gray-300;
+
+    svg {
+      color: $gray-500;
+    }
+  }
+}
+
+.prevButton {
+  margin-right: auto;
+
+  &:hover svg {
+    transform: translateX(#{rem(-6px)}) scale(-1);
+    color: $gray-700;
+  }
+
+  svg {
+    transform: scale(-1);
+  }
+
+  @include media-breakpoint-up(md) {
+    order: 0;
+  }
+}
+
+.nextButton {
+  margin-left: auto;
+  order: 3;
+
+  &:hover svg {
+    transform: translateX(#{rem(6px)});
+    color: $gray-700;
+  }
+
+  @include media-breakpoint-up(md) {
+    order: 3;
+
+    &:hover {
+      color: $gray-700;
+    }
+  }
+}
+
+.pageThumb {
+  transition: all 0.5s ease-in-out;
+  border: solid 1px $gray-400;
+  border-radius: rem(24px);
+  min-width: rem(32px);
+  align-items: center;
+  text-align: center;
+  margin: 0 rem(3px);
+  cursor: pointer;
+  display: flex;
+
+  a {
+    padding: $spacing-x1 $spacing-x2;
+    line-height: rem(18px);
+    text-decoration: none;
+    font-size: rem(18px);
+    color: $gray-900;
+    width: 100%;
+  }
+
+  &:hover {
+    border: solid 1px $orange;
+  }
+}
+
+.activePage {
+  background-color: $orange;
+  border: solid 1px transparent;
+
+  a {
+    color: $white;
+  }
+}
+
+.break {
+  margin: 0 rem(3px);
+
+  a {
+    line-height: rem(18px);
+    text-decoration: none;
+    font-size: rem(18px);
+    color: $gray-900;
+  }
+}

@@ -1,0 +1,117 @@
+@import '../../../styles/includes/';
+
+.restoredInAreaWrapper {
+  text-align: center;
+  padding: $spacing-x5 $spacing-x2;
+  color: $gray-900;
+  border-bottom: 1px solid $gray-300;
+}
+
+.restoredInAreaText {
+  font-size: rem(21px);
+  line-height: 1.1;
+}
+
+.withoutPowerText {
+  font-size: rem(24px);
+  line-height: 1.1;
+}
+
+.restoredInAreaValue {
+  font-size: rem(48px);
+  line-height: 1.1;
+  color: $dark-teal;
+}
+
+.reportPowerCutWrapper {
+  margin-top: $spacing-x4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reportLink {
+  max-width: rem(280px);
+  font-size: rem(18px);
+  padding-left: $spacing-x3;
+  padding-right: $spacing-x7;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.infoAboutText {
+  font-size: rem(18px);
+  line-height: 1.1;
+  text-align: center;
+  margin-top: $spacing-x3;
+  color: $gray-900;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.reasonWrapper {
+  text-align: center;
+  padding: $spacing-x3 $spacing-x5;
+  color: $gray-600;
+}
+
+.reasonForPowerCutText {
+  font-size: rem(18px);
+  line-height: 1.1;
+  text-align: center;
+  color: $gray-900;
+
+  p {
+    margin-bottom: $spacing-x2;
+  }
+}
+
+.reasonForPowerCutDescription {
+  line-height: 1.67;
+  margin-bottom: $spacing-x4;
+  color: $gray-900;
+}
+
+.reportedAtText {
+  font-size: rem(18px);
+  line-height: 1.1;
+  text-align: center;
+  color: $gray-900;
+
+  p {
+    margin-bottom: $spacing-x1;
+  }
+}
+
+.reportedAtValue {
+  font-size: rem(18px);
+  line-height: 1.1;
+  text-align: center;
+  color: $gray-900;
+}
+
+.inlineRichText {
+  display: inline;
+
+  p {
+    display: inline;
+    margin: 0;
+  }
+}
+
+.reportCTA {
+  width: 100%;
+  max-width: rem(288px);
+
+  p {
+    font-size: $button-size-regular;
+    margin-bottom: 0;
+    text-align: left;
+    padding-left: $spacing-x2;
+    -webkit-font-smoothing: antialiased;
+  }
+}

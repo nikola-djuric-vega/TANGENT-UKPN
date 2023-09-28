@@ -1,0 +1,40 @@
+@import '../../../styles/includes/';
+
+.ScrollPromp {
+  @include animate(bounce, 3s, ease-in-out, forwards, infinite );
+  transform: translate(-50%, 0);
+  background-color: transparent;
+  flex-direction: column;
+  @include bounce-anim;
+  position: absolute;
+  height: rem(32px);
+  width: rem(72px);
+  overflow: hidden;
+  display: flex;
+  border: none;
+  z-index: 2;
+  padding: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+.ScrollPrompTip {
+  border-radius: rem(36px) rem(36px) 0 0;
+  background-color: $dark-blue;
+  position: relative;
+  height: rem(96px);
+  width: rem(72px);
+  cursor: pointer;
+
+  &::after {
+    @include css-svg-background('right-chevron-small', $white);
+    transform: rotate(90deg) translate(-50%, rem(2px));
+    transform-origin: rem(5px) rem(5px);
+    position: absolute;
+    height: rem(16px);
+    width: rem(16px);
+    display: block;
+    top: rem(20px);
+    left: 50%;
+  }
+}

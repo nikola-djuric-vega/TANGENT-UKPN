@@ -1,0 +1,297 @@
+@import '../../../styles/includes';
+
+.searchContainer {
+  margin-right: $spacing-x4;
+  transition: width 0.25s;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  right: rem(76px);
+  width: rem(82px);
+  display: flex;
+  height: 100%;
+  z-index: 31;
+  top: 0;
+
+  &[data-search-is-opened='true'] {
+    background-color: $white;
+  }
+
+  &[data-search-is-opened='true'][data-is-storm='true'] {
+    background-color: transparent;
+  }
+
+  &[data-search-is-opened='true'][data-is-storm='true'][data-is-scrolled='true'] {
+    background-color: $white;
+  }
+
+  &[data-search-is-opened='true'] {
+    justify-content: flex-end;
+    background: $white;
+    margin-right: 0;
+    width: 100%;
+    right: 0;
+
+    @include media-breakpoint-up(header) {
+      width: calc(100% - 274px);
+      right: rem(60px);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-right: rem(55px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-right: rem(80px);
+  }
+
+  @include media-breakpoint-up(header) {
+    margin-right: 0;
+    right: rem(60px);
+    top: 0;
+  }
+}
+
+.search {
+  padding: $spacing-x1 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  [data-search-is-opened='true'] & {
+    padding: $spacing-x1 $spacing-x2;
+  }
+
+  [data-search-is-opened='true'][data-is-storm='true'] & {
+    padding: $spacing-x1 $spacing-x2;
+  }
+
+  @include media-breakpoint-up(header) {
+    [data-search-is-opened='true'] &,
+    [data-search-is-opened='true'][data-is-storm='true'] &,
+    [data-search-is-opened='true'][data-is-storm='true'][data-is-scrolled='true']
+      & {
+      padding: $spacing-x1 $spacing-x3 $spacing-x1 $spacing-x2;
+    }
+
+    [data-search-is-opened='true'][data-is-scrolled='true'] & {
+      border: none;
+    }
+  }
+}
+
+.searchButton {
+  @include font-size($text-body-2);
+  -webkit-tap-highlight-color: transparent;
+
+  svg {
+    height: rem(24px);
+    width: rem(24px);
+    color: $gray-700;
+
+    [data-search-is-opened='true'] & {
+      display: none;
+    }
+
+    [data-is-storm='true'] & {
+      color: $white;
+    }
+
+    [data-is-storm='true'][data-is-scrolled='true'] & {
+      color: $gray-700;
+    }
+  }
+
+  [data-is-storm='true'] & {
+    background-color: transparent;
+  }
+}
+
+.searchButtonTitle {
+  margin-right: $spacing-x1;
+  transition: all 0.25s;
+  color: $gray-700;
+  width: auto;
+  opacity: 1;
+
+  [data-search-is-opened='true'] & {
+    margin-right: 0;
+    opacity: 0;
+    width: 0;
+  }
+
+  [data-is-storm='true'] & {
+    color: $white;
+  }
+
+  [data-is-storm='true'][data-is-scrolled='true'] & {
+    color: $gray-700;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: '';
+    @include css-svg-icon('icon_search', $gray-700);
+    transform: translateY(-50%);
+    position: absolute;
+    left: $spacing-x2;
+    width: rem(24px);
+    display: block;
+    top: 50%;
+  }
+
+  [data-is-storm='true'] & {
+    &::after {
+      @include css-svg-icon('icon_search', $white);
+    }
+  }
+
+  [data-is-storm='true'][data-is-scrolled='true'] & {
+    &::after {
+      @include css-svg-icon('icon_search', $gray-700);
+    }
+  }
+}
+
+.searchForm {
+  height: 100%;
+}
+
+.searchInput {
+  @include border-radius(8px, true, true, true, true);
+  @include font-size($text-body-2);
+  border: 1px solid $gray-300;
+  background-color: $bg-grey;
+  transition: width 0.25s;
+  padding-left: rem(50px);
+  position: relative;
+  color: $gray-900;
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  &::placeholder {
+    color: $gray-700;
+  }
+
+  &:focus-visible {
+    outline: 1px solid $dark-blue;
+    border-radius: 8px;
+
+    [data-is-storm='true'] & {
+      outline: 1px solid $white;
+    }
+  }
+
+  [data-is-storm='true'] & {
+    background-color: transparent;
+    color: $white;
+  }
+
+  [data-is-storm='true'][data-is-scrolled='true'] & {
+    background-color: $white;
+    color: $white;
+  }
+
+  [data-search-is-opened='true'][data-is-storm='true'] & {
+    background-color: transparent;
+
+    &::placeholder {
+      color: $white;
+    }
+  }
+
+  [data-search-is-opened='true'][data-is-storm='true'][data-is-scrolled='true']
+    & {
+    background-color: $white;
+    color: $gray-900;
+
+    &::placeholder {
+      color: $gray-700;
+    }
+  }
+
+  &:focus {
+    &::placeholder {
+      color: $gray-700;
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: $white;
+    -webkit-text-fill-color: $white;
+  }
+}
+
+.closeSearchButton {
+  @include font-size($text-body-2);
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.25s ease-in-out;
+  padding-right: $spacing-x2;
+  pointer-events: none;
+  align-self: stretch;
+  position: relative;
+  color: $gray-700;
+  opacity: 0;
+  right: 0;
+
+  svg {
+    height: rem(24px);
+    width: rem(24px);
+    color: $gray-700;
+  }
+
+  [data-search-is-opened='true'] & {
+    pointer-events: visible;
+    border: none;
+    opacity: 1;
+
+    svg {
+      color: $gray-700;
+    }
+  }
+
+  [data-is-storm='true'][data-search-is-opened='true'] & {
+    svg {
+      color: $white;
+    }
+  }
+
+  [data-is-storm='true'][data-search-is-opened='true'][data-is-scrolled='true']
+    & {
+    svg {
+      color: $gray-700;
+    }
+  }
+
+  @include media-breakpoint-up(header) {
+    padding: 0;
+  }
+}
+
+.closeBtnText {
+  margin-left: $spacing-x1;
+  display: none;
+
+  @include media-breakpoint-up(header) {
+    display: block;
+
+    [data-is-storm='true'] & {
+      margin-right: $spacing-x2;
+      color: $white;
+    }
+
+    [data-is-storm='true'][data-is-scrolled='true'] & {
+      color: $gray-700;
+    }
+  }
+}

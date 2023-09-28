@@ -1,0 +1,82 @@
+@import '../../../styles/includes';
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-x4;
+  width: 100%;
+  border: none;
+  padding: 0;
+
+  @include media-breakpoint-up(md) {
+    width: rem($form-width);
+  }
+
+  &[data-is-power-cut-checks='true'] {
+    @include media-breakpoint-up(md) {
+      width: rem(1160px);
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  margin-bottom: $spacing-x1;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.error {
+  margin-top: $spacing-x1;
+  width: 100%;
+}
+
+.tooltip {
+  margin-top: $spacing-x1;
+}
+
+.listItem {
+  width: 100%;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  label {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.checkboxListItem {
+  width: 100%;
+  margin-bottom: $spacing-x1;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.richText {
+  width: 100%;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include font-size($textH5);
+    margin-bottom: $spacing-x1;
+    font-weight: bold;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+  }
+  color: $gray-900;
+
+  strong {
+    -webkit-font-smoothing: antialiased;
+  }
+}

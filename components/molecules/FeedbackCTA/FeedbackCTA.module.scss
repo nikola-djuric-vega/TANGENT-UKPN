@@ -1,0 +1,52 @@
+@import '../../../styles/includes';
+
+.FeedbackCTA {
+}
+
+.feedbacksWrapper {
+  align-items: flex-start;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+}
+
+.feedback {
+  margin-bottom: $spacing-x4;
+  flex-direction: column;
+  padding: 0 $spacing-x2;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x6;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 $spacing-x4;
+    margin-bottom: 0;
+    width: 50%;
+  }
+}
+
+.feedbackTitle {
+  @include font-size($textH4);
+  color: $gray-900;
+  font-weight: 400;
+}
+
+.feedbackText {
+  @include font-size($text-body-2);
+  color: $gray-700;
+  font-weight: 400;
+}

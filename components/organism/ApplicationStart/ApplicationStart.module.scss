@@ -1,0 +1,146 @@
+@import '../../../styles/includes';
+
+.applicationStart {
+  padding: 0 0 rem(96px);
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: rem(96px);
+  }
+}
+
+.content {
+  @include site-grid;
+  margin: 0 auto;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      width: 100vw;
+      background-color: $gray-50;
+      grid-column: 1/-1;
+      grid-row: 1/2;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.header {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  padding: $spacing-x8 $spacing-x2 $spacing-x7;
+  background-color: $gray-50;
+  color: $gray-900;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    margin: 0;
+    padding: $spacing-x8 0 $spacing-x7;
+    grid-column: 1/7;
+  }
+}
+
+.headerTitle {
+  margin-bottom: $spacing-x2;
+}
+
+.headerSubtitle {
+  @include font-size($text-body-2);
+  color: $mid-blue;
+}
+
+.formHeader {
+  align-self: flex-end;
+  position: relative;
+  grid-column: 1/-1;
+  grid-row: 3/4;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 7/-1;
+    grid-row: 1/2;
+  }
+}
+
+.iconWrapper {
+  position: absolute;
+  left: rem(40px);
+  top: rem(7px);
+
+  svg {
+    color: $white;
+    width: rem(50px);
+    height: rem(80px);
+  }
+}
+
+.formTitle {
+  grid-column: 7/-1;
+  grid-row: 1/2;
+  font-size: rem(24px);
+  padding: $spacing-x2 $spacing-x6 $spacing-x2 rem(112px);
+  background-color: #1e212e;
+  color: $white;
+}
+
+.textWrapper {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  padding: $spacing-x6 $spacing-x2 $spacing-x4;
+
+  &[data-has-footer-only='true'] {
+    padding-top: rem(90px);
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-column: 1/6;
+    grid-row: 2/3;
+    padding: $spacing-x6 0 0;
+  }
+}
+
+.footerText {
+  @include font-size($text-body-2);
+  color: $gray-700;
+  line-height: 1.5rem;
+
+  &[data-has-top-border='true'] {
+    padding-top: $spacing-x3;
+    border-top: rem(2px) solid $gray-200;
+  }
+}
+
+.postcodeFormWrapper {
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 7/-1;
+    grid-row: 2/3;
+    padding: 0;
+  }
+}
+
+.backgroundRings {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+    @include css-svg-icon('background-rings');
+    background: $radial-gradient;
+    position: absolute;
+    height: rem(387px);
+    width: 100%;
+    z-index: -1;
+    right: -42%;
+    top: 0;
+  }
+}

@@ -1,0 +1,112 @@
+@import '../../../styles/includes';
+
+.HomePageHeroBanner {
+  flex-direction: column-reverse;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+  }
+}
+
+.sliderMain {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    border-bottom: rem(1px) solid $gray-300;
+  }
+}
+
+.sliderNavigation {
+  @include container-max-width;
+  @include site-grid;
+
+  @include media-breakpoint-up(md) {
+    margin-top: rem(-1px);
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-top: rem(-1px);
+    padding: 0;
+  }
+}
+
+.sliderNavigationinner {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex-direction: row;
+  grid-column: 1 / -1;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  display: flex;
+  z-index: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slideButton {
+  min-width: auto !important;
+  padding: $spacing-x2 $spacing-x3;
+  @include font-size($text-body-2);
+  height: rem(62px) !important;
+  border: 1px solid $gray-300;
+  text-overflow: ellipsis;
+  flex-direction: row;
+  white-space: nowrap;
+  position: relative;
+  flex-wrap: nowrap;
+  color: $gray-900;
+
+  @include media-breakpoint-up(lg) {
+    padding: $spacing-x2;
+    width: 25%;
+    height: rem(80px) !important;
+    min-width: unset !important;
+    overflow: hidden;
+  }
+
+  &[data-active='true'] {
+    background-color: $gray-200;
+    font-weight: 700;
+
+    &::after {
+      @include css-svg-background('ico-top-notch', $gray-200);
+      position: absolute;
+      height: rem(20px);
+      width: rem(20px);
+      left: rem(39px);
+      top: rem(-11px);
+      content: '';
+      z-index: 11;
+    }
+
+    svg {
+      color: $dark-blue;
+    }
+  }
+
+  svg {
+    margin-right: $spacing-x2;
+    color: $gray-500;
+    flex-shrink: 0;
+    width: rem(32px);
+    height: rem(32px);
+
+    @include media-breakpoint-up(md) {
+      width: rem(40px);
+      height: rem(40px);
+    }
+  }
+
+  span {
+    @include media-breakpoint-up(md) {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}

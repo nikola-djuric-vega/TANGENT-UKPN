@@ -1,0 +1,143 @@
+@import '../../../styles/includes/';
+
+.powerCutPanelHeader {
+  position: relative;
+  padding-bottom: $spacing-x3;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-x6 $spacing-x2 $spacing-x2 $spacing-x2;
+  color: $gray-900;
+  background-color: $gray-200;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: -25%;
+    right: -25%;
+    bottom: 0;
+    width: 150%;
+    height: rem(120px);
+    background-color: $gray-200;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.heading {
+  @include font-size($textH4);
+  padding: 0 $spacing-x3;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.referenceNr {
+  padding-top: $spacing-x1;
+  color: $gray-900;
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: rem(300px);
+  width: 100%;
+  margin-top: $spacing-x3;
+  gap: $spacing-x2;
+}
+
+.filled75 {
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 85;
+}
+
+.filled50 {
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 169;
+}
+
+.filled25 {
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 254;
+}
+
+.filled0 {
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+}
+
+.animated {
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+
+.lineTeal {
+  stroke: $teal;
+}
+
+.lineRed {
+  stroke: $red;
+}
+
+.lineOrange {
+  stroke: $orange;
+}
+
+.lineBlue {
+  stroke: $blue;
+}
+
+.linePurple {
+  stroke: $purple;
+}
+
+.multiIconWrapper {
+  width: rem(72px);
+  height: rem(72px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-x2;
+  color: $white;
+}
+
+.multiIconCount {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  @include font-size($textH4);
+}
+
+.button {
+  max-width: rem(300px);
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include font-size($text-body-2);
+
+  span {
+    @include font-size($text-body-2);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  > div {
+    width: auto;
+  }
+
+  p {
+    margin: 0;
+  }
+}

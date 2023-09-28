@@ -1,0 +1,155 @@
+@import '../../../styles/includes';
+
+.powerCut {
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  @include media-breakpoint-up(md) {
+    padding: $spacing-x5 0;
+  }
+}
+
+.inner {
+  @include site-grid;
+  margin: 0 auto;
+  height: 100%;
+
+  @include media-breakpoint-down(md) {
+    padding: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-rows: 0.5fr 0.5fr;
+  }
+}
+
+.textPowerCut {
+  padding-top: $spacing-x3;
+  background-color: $white;
+  align-self: flex-start;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 2 / -2;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: auto auto;
+    background-color: transparent;
+    grid-column: 1 / 9;
+    padding-top: 0;
+  }
+}
+
+.title,
+.subTitle {
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    text-align: left;
+  }
+}
+
+.title {
+  @include font-size($powerCutH1);
+  margin-bottom: $spacing-x1;
+
+  @include media-breakpoint-up(lg) {
+    color: $white;
+  }
+}
+
+.subTitle {
+  @include font-size($text-body-1);
+  color: $gray-600;
+
+  @include media-breakpoint-up(lg) {
+    color: $white;
+  }
+}
+
+.addressLookUpWrapper {
+  border-top: 1px solid $gray-300;
+  background-color: $white;
+  height: rem(66px);
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    height: rem(89px);
+    border-top: none;
+  }
+}
+
+.powerCutLinks {
+  background-color: $dark-blue;
+  justify-content: center;
+  align-self: flex-start;
+  max-width: rem(260px);
+  justify-self: center;
+  align-items: center;
+  flex-direction: row;
+  grid-column: 2 / -2;
+  flex-wrap: wrap;
+  grid-row: 2 / 3;
+  color: $white;
+  display: flex;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 4 / -4;
+    width: 100%;
+    margin-top: $spacing-x5;
+  }
+
+  @include media-breakpoint-up(lg) {
+    align-self: flex-end;
+    grid-column: 1 / 4;
+    width: 100%;
+  }
+}
+
+.ctaTitle {
+  border-bottom: 1px solid $gray-600;
+  @include font-size($text-body-2);
+  padding: $spacing-x2 $spacing-x3;
+  flex-direction: column;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.mapsLink {
+  padding: $spacing-x2 $spacing-x2 $spacing-x2 0;
+  justify-content: flex-end;
+  display: flex;
+  width: 50%;
+}
+
+.listLink {
+  padding: $spacing-x2 0 $spacing-x2 $spacing-x2;
+  width: 50%;
+}
+
+.mapsLink,
+.listLink {
+  @include font-size($text-body-2, 700);
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+    color: $dark-teal;
+  }
+
+  svg {
+    margin-right: $spacing-x1;
+    height: rem(25px);
+    width: rem(25px);
+  }
+}

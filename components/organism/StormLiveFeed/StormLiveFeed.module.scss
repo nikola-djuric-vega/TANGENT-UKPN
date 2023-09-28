@@ -1,0 +1,40 @@
+@import '../../../styles/includes';
+
+.StormLiveFeed {
+  padding-bottom: $spacing-x7;
+  background-color: $bg-blue;
+  padding-top: $spacing-x7;
+}
+
+.inner {
+  grid-template-rows: repeat(auto, 2);
+  row-gap: $spacing-x5;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: auto;
+  }
+}
+
+.feed {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+
+  &[data-feed-only='true'] {
+    grid-column: 1 / -1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 1 / 8;
+    grid-row: 1 / -1;
+  }
+}
+
+.stromExtra {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 8 / -1;
+    grid-row: 1 / -1;
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../styles/includes';
+
+.container {
+  margin-top: $spacing-x4;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.inner {
+  padding: 0 $spacing-x2 0 $spacing-x2;
+  max-width: rem($form-width);
+  flex-direction: column;
+  flex-shrink: 1;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    padding: 0;
+  }
+}
+
+.selectLabel {
+  margin-bottom: $spacing-x1;
+}
+
+.mandatoryText {
+  margin-top: $spacing-x1;
+}
+
+.NextButton {
+  margin-top: $spacing-x1;
+  align-self: center;
+}

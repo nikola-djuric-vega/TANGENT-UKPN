@@ -1,0 +1,65 @@
+@import '../../../styles/includes/';
+
+.card {
+  background-color: transparentize($gray-900, 0.2);
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+
+  @include media-breakpoint-up(md) {
+    background-color: transparent;
+  }
+}
+
+.cardContent {
+  @include border-radius($border-radius-mobile, true, true, false, false);
+  box-shadow: 0 rem(2px) rem(20px)
+    transparentize($color: $gray-900, $amount: 0.9);
+  background-color: $white;
+  min-height: rem(200px);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    @include border-radius($border-radius-desktop);
+    max-width: rem(400px);
+    height: fit-content;
+    right: rem(35px);
+    top: rem(117px);
+    bottom: unset;
+
+    &:before {
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+      border-radius: 0 0 0 rem(5px);
+      transform: rotate(135deg);
+      background-color: inherit;
+      position: absolute;
+      top: -$spacing-x1;
+      height: rem(34px);
+      width: rem(34px);
+      display: block;
+      content: '';
+      right: 8%;
+
+      [data-is-popup-open='true'] & {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    right: rem(60px);
+  }
+}
+
+.closeBtn {
+  -webkit-tap-highlight-color: transparent;
+  margin: $spacing-x3 $spacing-x2 0 auto;
+
+  svg {
+    height: rem(24px);
+    width: rem(24px);
+    color: $gray-900;
+  }
+}

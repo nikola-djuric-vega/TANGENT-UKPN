@@ -1,0 +1,70 @@
+@import '../../../styles/includes';
+
+.accordion {
+  overflow: hidden;
+}
+
+.content {
+  grid-column: 1/-1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 2/12;
+  }
+}
+
+.title {
+  color: $gray-900;
+  margin-bottom: $spacing-x1;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: $spacing-x2;
+  }
+}
+
+.items {
+  margin: 0;
+}
+
+.viewMoreLinkWrapper {
+  text-align: center;
+  padding: $spacing-x2;
+  margin: 0;
+}
+
+.viewMoreLink {
+  text-decoration: none;
+  color: $gray-900;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+    color: $gray-900;
+  }
+
+  svg {
+    margin-left: $spacing-x1;
+  }
+}
+
+.categories {
+  margin: $spacing-x4 (-$spacing-x4) $spacing-x1 (-$spacing-x4);
+  display: flex;
+  overflow: scroll;
+  gap: $spacing-x1;
+  padding: 0 $spacing-x2 0 $spacing-x4;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin: 0;
+    padding: $spacing-x5 0;
+    border-bottom: 1px solid $gray-600;
+    gap: $spacing-x2;
+  }
+}

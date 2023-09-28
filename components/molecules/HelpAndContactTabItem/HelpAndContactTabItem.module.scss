@@ -1,0 +1,87 @@
+@import '../../../styles/includes';
+
+.tabButton {
+  -webkit-tap-highlight-color: transparent;
+  border: rem(1px) solid $gray-300;
+  background-color: $gray-200;
+  justify-content: left !important;
+  min-height: rem(80px);
+  font-size: rem(21px);
+  text-align: left;
+  border-radius: 0;
+  color: $gray-800;
+  border-top: none;
+  width: 100%;
+  z-index: 1;
+
+  &:first-of-type {
+    border-top: rem(1px) solid $gray-300;
+  }
+
+  &:focus {
+    outline: rem(5px) auto -webkit-focus-ring-color;
+    color: $gray-800;
+
+    svg {
+      color: $gray-800;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    border-right: none;
+    width: 30% !important;
+
+    &:hover {
+      color: $gray-800;
+
+      svg {
+        color: $gray-800;
+      }
+    }
+
+    &[data-is-tab-active='true'] {
+      background-color: $white;
+
+      color: $gray-900;
+
+      svg {
+        color: $dark-blue;
+      }
+
+      &:hover {
+        color: $gray-800;
+
+        svg {
+          color: $gray-800;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: rem(-1px);
+        border-right: rem(1px) solid $white;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.tabIconWrapper {
+  svg {
+    width: rem(40px);
+    height: rem(40px);
+    margin: 0 $spacing-x3;
+    color: $gray-700;
+  }
+}
+
+.tabTitle {
+  margin-right: $spacing-x5;
+  padding: $spacing-x2 0;
+
+  @include media-breakpoint-up(lg) {
+    margin-right: $spacing-x4;
+  }
+}
